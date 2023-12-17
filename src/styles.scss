@@ -2,3 +2,10 @@
 @import "./assets/styles/mixins";
 @import "./assets/styles/fonts";
 @import "./assets/styles/reset";
+
+
+body{
+  font-family: var(--font-fira);
+  background: var(--bg-color);
+  color: var( --color-gray);
+}

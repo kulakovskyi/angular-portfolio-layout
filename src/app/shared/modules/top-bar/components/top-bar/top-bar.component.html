@@ -1,0 +1,22 @@
+<div class="header">
+    <div class="header__row">
+      <a href="" class="header__name">kulakovskyi</a>
+      <div class="header__nav">
+        <a [routerLink]="['/']"
+           [routerLinkActive]="['active']"
+           [routerLinkActiveOptions]="{exact: true}"
+           class="header__nav-link">_hello</a>
+        <a
+          [routerLink]="['/about']"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{exact: true}"
+          class="header__nav-link">_about-me</a>
+        <a
+          [routerLink]="['/projects']"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{exact: true}"
+          class="header__nav-link">_projects</a>
+      </div>
+      <a href="" class="header__contact">_contact-me</a>
+    </div>
+</div>

@@ -1,5 +1,9 @@
-<h2>top-bar</h2>
-
-<router-outlet></router-outlet>
-
-<h3>footer</h3>
+<div class="wrapper">
+  <div class="wrapper__container">
+    <app-top-bar></app-top-bar>
+    <div class="wrapper__main">
+      <router-outlet ></router-outlet>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</div>
