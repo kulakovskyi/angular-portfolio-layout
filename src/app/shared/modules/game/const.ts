@@ -15,7 +15,7 @@ export const COLORS = {
   HEAD: 'var(--color-green)',
   BODY: 'var(--color-green)',
   BOARD: 'transparent',
-  OBSTACLE: 'var(--color-obstacle)'
+  OBSTACLE: 'var(--color-orange)'
 };
 
 export const GAME_MODES = {

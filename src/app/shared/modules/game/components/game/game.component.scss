@@ -3,9 +3,9 @@
   width: 510px;
   height: 475px;
   border-radius: 8px;
-  border: 1px solid #0C1616;
-  background: linear-gradient(150deg, rgba(23, 85, 83, 0.70) 1.7%, rgba(67, 217, 173, 0.09) 81.82%);
-  box-shadow: 0px 2px 0px 0px rgba(255, 255, 255, 0.30) inset;
+  border: 1px solid var(--dark-border);
+  background: var(--gren-gradient);
+  box-shadow: 0 2px 0 0 var(--shadow-gray) inset;
   backdrop-filter: blur(32px);
   &__wrapper{
     display: flex;
@@ -18,8 +18,8 @@
     min-width: 240px;
     overflow: hidden;
     border-radius: 8px;
-    background: rgba(1, 22, 39, 0.84);
-    box-shadow: 1px 5px 11px 0px rgba(2, 18, 27, 0.71) inset;
+    background: var(--bg-snake-blue);
+    box-shadow: 1px 5px 11px 0 var(--shadow-snake-blue) inset;
   }
   &__rules{
     padding: 15px 13px;
@@ -97,7 +97,7 @@
     height: 15px;
   }
   .column {
-    border: 1px solid rgba(97, 131, 138, .1);
+    border: 1px solid var(--color-column-snake);
     width: 15px;
     height: 15px;
     display: inline-block;
@@ -145,7 +145,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 10px;
-  background: rgba(0, 0, 0, 0.15);
+  background: var(--gray-opacity-bg);
   &-label{
     font-size: 14px;
     font-style: normal;

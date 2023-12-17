@@ -60,20 +60,27 @@ export class GameComponent implements OnInit{
   handleKeyboardEvents(e: KeyboardEvent) {
     if (e.keyCode === CONTROLS.LEFT && this.snake.direction !== CONTROLS.RIGHT) {
       this.tempDirection = CONTROLS.LEFT;
-      this.pressedKey = 'left';
     } else if (e.keyCode === CONTROLS.UP && this.snake.direction !== CONTROLS.DOWN) {
       this.tempDirection = CONTROLS.UP;
-      this.pressedKey = 'up';
-    } else if (e.keyCode === CONTROLS.RIGHT) {
+    } else if (e.keyCode === CONTROLS.RIGHT && this.snake.direction !== CONTROLS.LEFT) {
       this.tempDirection = CONTROLS.RIGHT;
-      this.pressedKey = 'right';
     } else if (e.keyCode === CONTROLS.DOWN && this.snake.direction !== CONTROLS.UP) {
       this.tempDirection = CONTROLS.DOWN;
+    }
+
+    if (e.keyCode === CONTROLS.LEFT){
+      this.pressedKey = 'left';
+    }
+    if (e.keyCode === CONTROLS.UP){
+      this.pressedKey = 'up';
+    }
+    if (e.keyCode === CONTROLS.RIGHT){
+      this.pressedKey = 'right';
+    }
+    if (e.keyCode === CONTROLS.DOWN){
       this.pressedKey = 'down';
     }
 
-
-    // Reset the clickedKey after a short delay (e.g., 100 milliseconds)
     setTimeout(() => {
       this.pressedKey = null;
     }, 100);
