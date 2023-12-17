@@ -1,22 +1,28 @@
 <div class="header">
     <div class="header__row">
       <a href="" class="header__name">kulakovskyi</a>
-      <div class="header__nav">
-        <a [routerLink]="['/']"
+      <div class="header__burger"
+           [class.active]="isMenuOpen"
+           (click)="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <div
+        [class.active]="isMenuOpen"
+        class="header__nav">
+        <a *ngFor="let link of dataLinks"
+           routerLink='{{link.route}}'
            [routerLinkActive]="['active']"
            [routerLinkActiveOptions]="{exact: true}"
-           class="header__nav-link">_hello</a>
-        <a
-          [routerLink]="['/about']"
-          [routerLinkActive]="['active']"
-          [routerLinkActiveOptions]="{exact: true}"
-          class="header__nav-link">_about-me</a>
-        <a
-          [routerLink]="['/projects']"
-          [routerLinkActive]="['active']"
-          [routerLinkActiveOptions]="{exact: true}"
-          class="header__nav-link">_projects</a>
+           (click)="toggleMenu()"
+           class="header__nav-link">{{link.name}}</a>
+        <ng-container *ngIf="isMenuOpen && isScreenWidthLessThan1080()">
+          <a href="" class="header__contact">_contact-me</a>
+        </ng-container>
       </div>
-      <a href="" class="header__contact">_contact-me</a>
+      <a
+        *ngIf="!isScreenWidthLessThan1080()"
+        href="" class="header__contact">_contact-me</a>
     </div>
 </div>

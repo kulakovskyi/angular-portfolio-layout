@@ -8,10 +8,29 @@
     justify-content: center;
     gap: 100px;
     height: 100%;
+    @media screen and (max-width: 1500px) {
+      gap: 0;
+    }
+    @media screen and (max-width: 1080px) {
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: stretch;
+    }
   }
   &__banner,
   &__game{
     padding: 40px 0;
     margin: auto 0;
+    @media screen and (max-width: 1080px) {
+      margin: auto;
+    }
+    @media screen and (max-width: 550px) {
+      padding: 70px 0;
+    }
+  }
+  &__game{
+    @media screen and (max-width: 1080px) {
+     display: none;
+    }
   }
 }

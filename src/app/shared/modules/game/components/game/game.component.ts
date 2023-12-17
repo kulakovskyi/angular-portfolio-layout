@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {BOARD_COLUMNS, BOARD_ROWS, COLORS, CONTROLS, GAME_MODES} from "../../const";
 import {GameService} from "../../services/game.service";
+import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
 
 @Component({
   selector: 'app-game',
@@ -12,6 +13,8 @@ import {GameService} from "../../services/game.service";
 })
 
 export class GameComponent implements OnInit{
+  isNarrowScreen: boolean = false;
+
   private interval: any;
   private tempDirection: any;
   private default_mode = 'classic';
@@ -45,7 +48,8 @@ export class GameComponent implements OnInit{
   };
 
   constructor(
-    private bestScoreService: GameService
+    private bestScoreService: GameService,
+    private breakpointObserver: BreakpointObserver
   ) {
     this.setBoard();
   }
@@ -54,6 +58,9 @@ export class GameComponent implements OnInit{
     if(this.best_score == undefined){
       this.bestScoreService.store(0);
     }
+    this.breakpointObserver.observe('(min-width: 1081px)').subscribe(result => {
+      this.isNarrowScreen = result.matches;
+    });
   }
 
 

@@ -1,4 +1,4 @@
-.game{
+.game {
   padding: 35px 30px;
   width: 510px;
   height: 475px;
@@ -8,10 +8,15 @@
   box-shadow: 0 2px 0 0 var(--shadow-gray) inset;
   backdrop-filter: blur(32px);
   position: relative;
+  @media screen and (max-width: 1500px) {
+    transform-origin: right center;
+    transform: scale(.8);
+  }
+
   &__dec1,
   &__dec2,
   &__dec3,
-  &__dec4{
+  &__dec4 {
     padding: 0 0 0.1px 1px;
     display: flex;
     align-items: center;
@@ -21,37 +26,42 @@
     position: absolute;
     border-radius: 13px;
   }
-  &__dec1{
+
+  &__dec1 {
     top: 12px;
     left: 12px;
     background: radial-gradient(73.08% 73.08% at 50% 26.92%, #196C6A 15.1%, #114B4A 100%);
     box-shadow: 0px 1px 2px 0px #1A8277 inset, 2px 2px 4px 0px #0D4341;
   }
-  &__dec2{
+
+  &__dec2 {
     top: 12px;
     right: 12px;
     background: radial-gradient(73.08% 73.08% at 50% 26.92%, #217D7A 15.1%, #114B4A 100%);
     box-shadow: 0px 1px 2px 0px #1F8177 inset, 2px 2px 4px 0px #0D4341;
   }
-  &__dec3{
+
+  &__dec3 {
     bottom: 12px;
     left: 12px;
     background: radial-gradient(73.08% 73.08% at 50% 26.92%, #164C51 15.1%, #0D3A40 100%);
     box-shadow: 0px 1px 2px 0px #16645C inset, 2px 2px 4px 0px #092D32;
   }
-  &__dec4{
+
+  &__dec4 {
     bottom: 12px;
     right: 12px;
     background: radial-gradient(73.08% 73.08% at 50% 26.92%, #234B7C 15.1%, #122E4F 100%);
     box-shadow: 0px 1px 2px 0px #2C588D inset, 2px 2px 4px 0px #122C4E;
   }
 
-  &__wrapper{
+  &__wrapper {
     display: flex;
     min-height: 100%;
     gap: 35px;
   }
-  &__snake{
+
+  &__snake {
     min-height: 100%;
     width: 240px;
     min-width: 240px;
@@ -60,31 +70,36 @@
     background: var(--bg-snake-blue);
     box-shadow: 1px 5px 11px 0 var(--shadow-snake-blue) inset;
   }
-  &__rules{
+
+  &__rules {
     padding: 15px 13px;
     border-radius: 8px;
     background: var(--gray-opacity-bg);
     margin: 0 0 40px;
-    &-text{
+
+    &-text {
       font-size: 14px;
       font-weight: 450;
       line-height: normal;
       color: var(--color-white);
       margin: 0 0 15px;
     }
-    &-keyboard{
+
+    &-keyboard {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 5px;
-      .wrap{
+
+      .wrap {
         display: flex;
         gap: 5px;
       }
+
       .top,
       .left,
       .bottom,
-      .right{
+      .right {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -93,13 +108,16 @@
         background: var(--bg-color);
         border: 1px solid var(--color-border-gray-dark);
         border-radius: 8px;
-        &.click{
+
+        &.click {
           background: var(--bg-color-hover);
         }
-        &:hover{
+
+        &:hover {
           background: var(--bg-color-hover);
         }
-        span{
+
+        span {
           width: 0;
           height: 0;
           border-left: 5px solid transparent;
@@ -107,18 +125,21 @@
           border-bottom: 7px solid var(--color-white);
         }
       }
-      .left{
-        span{
+
+      .left {
+        span {
           transform: rotate(-90deg);
         }
       }
-      .right{
-        span{
+
+      .right {
+        span {
           transform: rotate(90deg);
         }
       }
-      .bottom{
-        span{
+
+      .bottom {
+        span {
           transform: rotate(-180deg);
         }
       }
@@ -132,9 +153,11 @@
   display: block;
   margin: auto;
   background-color: transparent;
+
   .row {
     height: 15px;
   }
+
   .column {
     border: 1px solid var(--color-column-snake);
     width: 15px;
@@ -144,7 +167,7 @@
 
 }
 
-.first-btn{
+.first-btn {
   position: absolute;
   top: 80%;
   left: 50%;
@@ -162,7 +185,8 @@
   color: var(--black-text);
   border-radius: 8px;
   transition: background .3s ease, opacity .3s ease;
-  &:hover{
+
+  &:hover {
     background-color: var(--color-orange-hover);
   }
 }
@@ -185,7 +209,8 @@
   justify-content: center;
   gap: 10px;
   background: var(--gray-opacity-bg);
-  &-label{
+
+  &-label {
     font-size: 14px;
     font-style: normal;
     font-weight: 450;
@@ -195,7 +220,7 @@
   }
 }
 
-.score-block{
+.score-block {
   display: flex;
   flex-direction: column;
   gap: 10px;
