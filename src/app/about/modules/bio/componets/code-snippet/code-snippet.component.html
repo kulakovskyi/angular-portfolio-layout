@@ -1,7 +1,9 @@
 <div class="code">
   <div class="code__wrap">
     <div class="code__title">// Code snippet showcase:</div>
-    <div class="code__list">
+    <div
+      *ngIf="(snippets$ | async) as snippets; else loading"
+      class="code__list">
       <div
         *ngFor="let snippet of snippets"
         class="code__item">
@@ -28,6 +30,9 @@
       </div>
 
     </div>
+    <ng-template #loading>
+      Loading...
+    </ng-template>
   </div>
 
 

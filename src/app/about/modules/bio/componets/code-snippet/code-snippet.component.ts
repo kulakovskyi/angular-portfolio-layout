@@ -4,6 +4,7 @@ import {HighlightAutoResult} from "ngx-highlightjs";
 import {SnippetGithubInterface} from "../../types/snippet-github.interface";
 import {environment} from "../../../../../../environment/environment";
 import {DescriptionCode} from "../../data/description-code";
+import {map, Observable} from "rxjs";
 
 @Component({
   selector: 'app-code-snippet',
@@ -11,22 +12,10 @@ import {DescriptionCode} from "../../data/description-code";
   styleUrls: ['./code-snippet.component.scss']
 })
 export class CodeSnippetComponent implements OnInit{
-  snippets: Array<{code: string, text: string}> = [];
   response!: HighlightAutoResult;
+  snippets$!: Observable<Array<{code: string, text: string}>>
 
   constructor(private githubService: GithubService) {}
-
-
-  onHighlight(e: HighlightAutoResult) {
-    this.response = {
-      language: e.language,
-      relevance: e.relevance,
-      secondBest: '{...}',
-      value: '{...}',
-    };
-  }
-
-
 
   ngOnInit() {
     this.getSnippets();
@@ -37,21 +26,25 @@ export class CodeSnippetComponent implements OnInit{
     const repo: string = environment.repoSnippet;
     const paths: string[] = environment.pathSnippet
 
-    this.githubService.getSnippets(owner, repo, paths).subscribe(
-      (data: SnippetGithubInterface[]) => {
-
-        this.snippets = data.map((snippet, index) => {
+    this.snippets$ = this.githubService.getSnippets(owner, repo, paths).pipe(
+      map((data: SnippetGithubInterface[]) => {
+        return data.map((snippet, index) => {
           return {
             code: atob(snippet.content),
             text: DescriptionCode[index].text
           };
         });
-        console.log(this.snippets)
-      },
-      (error) => {
-        console.error('Error fetching snippets:', error);
-      }
+      })
     );
+
+  }
+  onHighlight(e: HighlightAutoResult) {
+    this.response = {
+      language: e.language,
+      relevance: e.relevance,
+      secondBest: '{...}',
+      value: '{...}',
+    };
   }
 
 }
