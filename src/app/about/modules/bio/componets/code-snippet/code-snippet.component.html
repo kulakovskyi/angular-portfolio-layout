@@ -1,1 +1,13 @@
 <p>code-snippet works!</p>
+
+
+<pre *ngFor="let snippet of snippets">
+  <code
+    style="background: var(--bg-color)"
+    [highlight]="snippet"
+    [languages]="['typescript']"
+    (highlighted)="onHighlight($event)"
+    [lineNumbers]="true">
+  </code>
+</pre>
+

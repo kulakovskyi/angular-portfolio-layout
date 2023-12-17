@@ -4,6 +4,9 @@ import { BioComponent } from './componets/bio/bio.component';
 import {RouterModule} from "@angular/router";
 import { PersonalInfoComponent } from './componets/personal-info/personal-info.component';
 import { CodeSnippetComponent } from './componets/code-snippet/code-snippet.component';
+import {GithubService} from "./services/github.service";
+import {Highlight} from "ngx-highlightjs";
+
 
 @NgModule({
   imports: [
@@ -11,12 +14,17 @@ import { CodeSnippetComponent } from './componets/code-snippet/code-snippet.comp
     RouterModule.forChild([
       {path: '', component: BioComponent}
     ]),
+    Highlight,
 
   ],
   declarations: [
     BioComponent,
     PersonalInfoComponent,
     CodeSnippetComponent
+  ],
+  providers:[
+    GithubService,
+
   ]
 })
 
