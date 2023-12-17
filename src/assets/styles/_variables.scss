@@ -1,0 +1,71 @@
+:root {
+
+  //fonts
+  --font-sans: 'DMSans', sans-serif;
+
+  //changing colors
+  --color-menu: #FFFFFF;
+  --bg-color: #F3F3F3;
+  --color-side-menu-links: #32343A;
+  --color-logo: #706EC7;
+  --color-title-top-bar: #111827;
+  --color-title-section: #111827;
+  --color-black: #000000;
+  --color-bg-gray-btn: #F3F3F3;
+  --color-gray-legend-chart: #5D6A83;
+  --color-gray-pies: #5D6A83;
+  --color-border-percent: #EEEFF2;
+  --color-gray-pages-tabs: #718096;
+  --color-global-project-transparent: rgba(112, 110, 199, 0.3);
+  --color-switch-bg: #FFFFFF;
+  --color-switch-range: #706EC7;
+  --color-title-form: #282D33;
+  --color-placeholder-form: #282D33;
+
+
+  //static colors
+  --color-gray: #718096;
+  --color-gray-not-this-mouht: rgba(113, 128, 150, 0.27);
+  --color-pies-one: #C99FFF;
+  --color-pies-two: #FFB2BD;
+  --color-pies-three: #D1FF9F;
+  --color-pies-fourth: #96DFFF;
+  --color-pies-five: #A4FCA9;
+  --color-pies-six: #89FFB7;
+  --color-pies-seven: #FFC398;
+  --color-green-percent: #22C55E;
+  --color-red-percent: #FF4747;
+  --color-global-project: #706EC7;
+  --color-global-project-hover: #8c8abe;
+  --color-global-project-active: #4829dc;
+  --color-green: #4CBE39;
+  --color-blue: #3976BE;
+  --color-white: #FFFFFF;
+  --color-gray-chart: #96A3BE;
+  --color-gray-info: #FAFAFA;
+  --color-gray-secondary: #32343A;
+
+
+}
+
+[data-theme="dark"] {
+  --color-menu: #161D2B;
+  --bg-color: #0F121D;
+  --color-side-menu-links: #FFFFFF;
+  --color-logo: #FFFFFF;
+  --color-title-top-bar: #FFFFFF;
+  --color-title-section: #FFFFFF;
+  --color-black: #FFFFFF;
+  --color-bg-gray-btn: #0F121D;
+  --color-gray-legend-chart: rgba(255, 255, 255, 0.40);
+  --color-gray-pies: #FFFFFF;
+  --color-border-percent: #FFFFFF;
+  --color-gray-pages-tabs: #FFFFFF;
+  --color-switch-bg: #706EC7;
+  --color-switch-range: #FFFFFF;
+  --color-global-project-transparent: #706EC7;
+  --color-title-form: #FFFFFF;
+  --color-placeholder-form:rgba(255, 255, 255, 0.40);
+}
+
+
