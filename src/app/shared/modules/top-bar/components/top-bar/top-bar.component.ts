@@ -1,6 +1,5 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {debounceTime, distinctUntilChanged, fromEvent, map} from "rxjs";
-import {DataTopBar, DataTopBarInterface} from "../../data-top-bar";
 
 @Component({
   selector: 'app-top-bar',
@@ -11,7 +10,6 @@ export class TopBarComponent implements OnInit{
 
   isMenuOpen = false;
   screenWidth!: number;
-  dataLinks: DataTopBarInterface[] = DataTopBar
 
   constructor() { }
 

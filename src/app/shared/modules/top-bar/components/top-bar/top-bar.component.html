@@ -11,12 +11,23 @@
       <div
         [class.active]="isMenuOpen"
         class="header__nav">
-        <a *ngFor="let link of dataLinks"
-           routerLink='{{link.route}}'
+        <a
+          [routerLink]="['/']"
            [routerLinkActive]="['active']"
            [routerLinkActiveOptions]="{exact: true}"
            (click)="toggleMenu()"
-           class="header__nav-link">{{link.name}}</a>
+           class="header__nav-link">_hello</a>
+        <a
+          [routerLink]="['/about']"
+          [routerLinkActive]="['active']"
+          (click)="toggleMenu()"
+          class="header__nav-link">_about-me</a>
+        <a
+          [routerLink]="['/projects']"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{exact: true}"
+          (click)="toggleMenu()"
+          class="header__nav-link">_projects</a>
         <ng-container *ngIf="isMenuOpen && isScreenWidthLessThan1080()">
           <a href="" class="header__contact">_contact-me</a>
         </ng-container>
