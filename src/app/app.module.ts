@@ -10,6 +10,7 @@ import {TopBarModule} from "./shared/modules/top-bar/top-bar.module";
 import {FooterModule} from "./shared/modules/footer/footer.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
+
 @NgModule({
   declarations: [
     AppComponent
