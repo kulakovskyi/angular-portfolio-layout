@@ -33,6 +33,8 @@
         </ng-container>
       </div>
       <a
+        [routerLink]="['/contacts']"
+        [routerLinkActive]="['active']"
         *ngIf="!isScreenWidthLessThan1080()"
         href="" class="header__contact">_contact-me</a>
     </div>

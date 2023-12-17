@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Data} from "../../../data/data";
 
 
 @Component({
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent {
-
+  data=  Data
   isListOpen = false;
   isListOpenContacts = false;
 

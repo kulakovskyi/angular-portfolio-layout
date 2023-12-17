@@ -12,5 +12,6 @@ export const environment = {
     'component3-snippet.ts',
     'service2-snippet.ts',
     'action-type-snippet.ts'
-  ]
+  ],
+
 }

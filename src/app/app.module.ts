@@ -11,6 +11,7 @@ import {FooterModule} from "./shared/modules/footer/footer.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HttpClientModule} from "@angular/common/http";
 import {HIGHLIGHT_OPTIONS, HighlightOptions} from "ngx-highlightjs";
+import {ContactsModule} from "./contacts/contacts.module";
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {HIGHLIGHT_OPTIONS, HighlightOptions} from "ngx-highlightjs";
     AboutModule,
     ProjectsModule,
     TopBarModule,
-    FooterModule
+    FooterModule,
+    ContactsModule
   ],
   providers: [
     {
