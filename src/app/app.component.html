@@ -1,8 +1,10 @@
 <div class="wrapper">
   <div class="wrapper__container">
     <app-top-bar></app-top-bar>
-    <div class="wrapper__main">
-      <router-outlet ></router-outlet>
+    <div
+      [@routeAnimations]="getRouteAnimationData()"
+      class="wrapper__main" >
+      <router-outlet #outlet="outlet"></router-outlet>
     </div>
     <app-footer></app-footer>
   </div>

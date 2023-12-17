@@ -4,7 +4,7 @@ import { ProjectsLayoutComponent } from './components/projects-layout/projects-l
 import {RouterModule, Routes} from "@angular/router";
 
 const routes: Routes = [
-  {path: 'projects', component: ProjectsLayoutComponent}
+  {path: 'projects', component: ProjectsLayoutComponent,data: { animation: 'HomePage' }}
 ]
 
 

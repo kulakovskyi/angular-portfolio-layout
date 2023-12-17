@@ -7,7 +7,7 @@ import {GameModule} from "../shared/modules/game/game.module";
 
 
 const routes: Routes = [
-  {path: '', component: HomeLayoutComponent}
+  {path: '', component: HomeLayoutComponent,data: { animation: 'HomePage' }}
 ]
 
 @NgModule({

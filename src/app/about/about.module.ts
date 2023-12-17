@@ -4,7 +4,7 @@ import { AboutLayoutComponent } from './components/about-layout/about-layout.com
 import {RouterModule, Routes} from "@angular/router";
 
 const routes: Routes = [
-  {path: 'about', component: AboutLayoutComponent}
+  {path: 'about', component: AboutLayoutComponent,data: { animation: 'AboutPage' }}
 ]
 
 

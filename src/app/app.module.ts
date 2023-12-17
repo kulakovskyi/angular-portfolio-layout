@@ -8,6 +8,7 @@ import {AboutModule} from "./about/about.module";
 import {ProjectsModule} from "./projects/projects.module";
 import {TopBarModule} from "./shared/modules/top-bar/top-bar.module";
 import {FooterModule} from "./shared/modules/footer/footer.module";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import {FooterModule} from "./shared/modules/footer/footer.module";
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     HomeModule,
     AboutModule,
     ProjectsModule,
