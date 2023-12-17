@@ -7,6 +7,45 @@
   background: var(--gren-gradient);
   box-shadow: 0 2px 0 0 var(--shadow-gray) inset;
   backdrop-filter: blur(32px);
+  position: relative;
+  &__dec1,
+  &__dec2,
+  &__dec3,
+  &__dec4{
+    padding: 0 0 0.1px 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 13px;
+    height: 13px;
+    position: absolute;
+    border-radius: 13px;
+  }
+  &__dec1{
+    top: 12px;
+    left: 12px;
+    background: radial-gradient(73.08% 73.08% at 50% 26.92%, #196C6A 15.1%, #114B4A 100%);
+    box-shadow: 0px 1px 2px 0px #1A8277 inset, 2px 2px 4px 0px #0D4341;
+  }
+  &__dec2{
+    top: 12px;
+    right: 12px;
+    background: radial-gradient(73.08% 73.08% at 50% 26.92%, #217D7A 15.1%, #114B4A 100%);
+    box-shadow: 0px 1px 2px 0px #1F8177 inset, 2px 2px 4px 0px #0D4341;
+  }
+  &__dec3{
+    bottom: 12px;
+    left: 12px;
+    background: radial-gradient(73.08% 73.08% at 50% 26.92%, #164C51 15.1%, #0D3A40 100%);
+    box-shadow: 0px 1px 2px 0px #16645C inset, 2px 2px 4px 0px #092D32;
+  }
+  &__dec4{
+    bottom: 12px;
+    right: 12px;
+    background: radial-gradient(73.08% 73.08% at 50% 26.92%, #234B7C 15.1%, #122E4F 100%);
+    box-shadow: 0px 1px 2px 0px #2C588D inset, 2px 2px 4px 0px #122C4E;
+  }
+
   &__wrapper{
     display: flex;
     min-height: 100%;
