@@ -1,13 +1,29 @@
-<p>code-snippet works!</p>
+<div class="code">
+  <div class="code__wrap">
+    <div class="code__title">// Code snippet showcase:</div>
+    <div class="code__list">
+      <div
+        *ngFor="let snippet of snippets"
+        class="code__item">
+        <div class="code__item-wrap">
+          <pre>
+              <code
+                style="background: var(--bg-code)"
+                [highlight]="snippet"
+                [languages]="['typescript']"
+                (highlighted)="onHighlight($event)"
+                [lineNumbers]="true">
+              </code>
+          </pre>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
 
-<pre *ngFor="let snippet of snippets">
-  <code
-    style="background: var(--bg-color)"
-    [highlight]="snippet"
-    [languages]="['typescript']"
-    (highlighted)="onHighlight($event)"
-    [lineNumbers]="true">
-  </code>
-</pre>
+</div>
+
+
+
 

@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {GithubService} from "../../services/github.service";
-import {HighlightAutoResult, HighlightLoader} from "ngx-highlightjs";
+import {HighlightAutoResult} from "ngx-highlightjs";
+import {SnippetGithubInterface} from "../../types/snippet-github.interface";
+import {environment} from "../../../../../../environment/environment";
 
 @Component({
   selector: 'app-code-snippet',
@@ -8,12 +10,10 @@ import {HighlightAutoResult, HighlightLoader} from "ngx-highlightjs";
   styleUrls: ['./code-snippet.component.scss']
 })
 export class CodeSnippetComponent implements OnInit{
-  snippets: any[] = [];
+  snippets: string[] = [];
   response!: HighlightAutoResult;
-  currentTheme: string = 'themeAndroidStudio';
 
-  constructor(private githubService: GithubService,
-              private hljsLoader: HighlightLoader) {}
+  constructor(private githubService: GithubService) {}
 
 
   onHighlight(e: HighlightAutoResult) {
@@ -31,17 +31,13 @@ export class CodeSnippetComponent implements OnInit{
     this.getSnippets();
   }
 
-  getSnippets(): void {
-    const owner = 'kulakovskyi';
-    const repo = 'twitter-angular-realworld';
-    const paths = [
-      'src/app/auth/store/selectors.ts',
-      'src/app/auth/components/login/login.component.ts'
-
-    ];
+  getSnippets() {
+    const owner: string = environment.gitHubUser;
+    const repo: string = environment.repoSnippet;
+    const paths: string[] = environment.pathSnippet
 
     this.githubService.getSnippets(owner, repo, paths).subscribe(
-      (data: any[]) => {
+      (data: SnippetGithubInterface[]) => {
         console.log(data)
         this.snippets = data.map(snippet => atob(snippet.content));
       },
