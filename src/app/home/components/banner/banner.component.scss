@@ -1,0 +1,50 @@
+.banner{
+  &__subtitle{
+    font-size: 18px;
+    font-weight: 450;
+    line-height: 20px;
+    color: var(--color-white-title);
+  }
+  &__title{
+    font-size: 62px;
+    font-weight: 400;
+    line-height: normal;
+    color: var(--color-white-title);
+    margin: 0 0 -5px;
+  }
+  &__prof{
+    font-size: 32px;
+    font-weight: 450;
+    line-height: normal;
+    color: var(--color-purple);
+    margin: 0 0 80px;
+  }
+  &__info{
+    font-size: 16px;
+    font-weight: 450;
+    line-height: normal;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 0 0 10px;
+  }
+  &__link{
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    color: var(--color-white);
+    .const{
+      color: var(--color-purple);
+    }
+    .name{
+      color: var(--color-green);
+    }
+    .link{
+      color: var(--color-orange);
+      transition: color .3s ease;
+      &:hover{
+        color: var(--color-orange-hover);
+      }
+    }
+  }
+}

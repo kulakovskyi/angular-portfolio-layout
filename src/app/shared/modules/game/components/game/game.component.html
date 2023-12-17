@@ -1,0 +1,38 @@
+<div class="game">
+  <div class="game__wrapper">
+    <div class="game__snake">
+      <div class="game-container">
+        <div class="row" *ngFor="let row of board; let i = index;">
+          <div class="column" [ngStyle]="{'background-color': setColors(i, j)}" *ngFor="let cell of row; let j = index"></div>
+        </div>
+        <div class="start-button first-btn" [ngClass]="{'disable-clicks': gameStarted}" (click)="showMenu()">start-game</div>
+        <div class="new-game-menu" *ngIf="showMenuChecker">
+          <span class="new-game-menu-label">Select Mode</span>
+          <div class="start-button new-game-button" (click)="newGame(mode)" *ngFor="let mode of getKeys(all_modes)">{{all_modes[mode]}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="game__info">
+      <div class="game__rules">
+        <div class="game__rules-text">
+          // use keyboard <br>
+          // arrows to play
+        </div>
+        <div class="game__rules-keyboard">
+          <div class="top" [class.click]="pressedKey === 'up'"><span></span></div>
+          <div class="wrap">
+            <div class="left" [class.click]="pressedKey === 'left'"><span></span></div>
+            <div class="bottom" [class.click]="pressedKey === 'down'"><span></span></div>
+            <div class="right" [class.click]="pressedKey === 'right'"><span></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="score-block">
+        <div class="score" [ngClass]="{'new-best-score': newBestScore}">// score: {{score}}</div>
+        <div class="best-score" [ngClass]="{'new-best-score': newBestScore}">// best-score: {{best_score}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
