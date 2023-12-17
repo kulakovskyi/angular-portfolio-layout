@@ -6,11 +6,19 @@ pre {
   word-wrap: break-word;
 
   code {
-    flex: 1;
+
+    //flex: auto;
     line-height: 1.5em;
     font-size: 14px;
     min-height: 100%;
     padding: 1em 1.2em;
+    @media screen and (max-width: 1840px) {
+      font-size: 10px;
+    }
+
+    @media screen and (max-width: 1555px) {
+      font-size: 8px;
+    }
 
     &.hljs-line-numbers {
       padding: 0 !important;
@@ -22,6 +30,7 @@ pre {
 
 /** Line numbers styles */
 .hljs {
+
   margin: 0 1em;
   padding: 10px;
   border: 1px solid gray;

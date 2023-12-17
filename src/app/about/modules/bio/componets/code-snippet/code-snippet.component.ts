@@ -13,7 +13,6 @@ import {DescriptionCode} from "../../data/description-code";
 export class CodeSnippetComponent implements OnInit{
   snippets: Array<{code: string, text: string}> = [];
   response!: HighlightAutoResult;
-  descriptionCode: Array<{text: string}> = DescriptionCode
 
   constructor(private githubService: GithubService) {}
 
