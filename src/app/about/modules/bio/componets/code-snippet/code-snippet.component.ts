@@ -3,6 +3,7 @@ import {GithubService} from "../../services/github.service";
 import {HighlightAutoResult} from "ngx-highlightjs";
 import {SnippetGithubInterface} from "../../types/snippet-github.interface";
 import {environment} from "../../../../../../environment/environment";
+import {DescriptionCode} from "../../data/description-code";
 
 @Component({
   selector: 'app-code-snippet',
@@ -10,8 +11,9 @@ import {environment} from "../../../../../../environment/environment";
   styleUrls: ['./code-snippet.component.scss']
 })
 export class CodeSnippetComponent implements OnInit{
-  snippets: string[] = [];
+  snippets: Array<{code: string, text: string}> = [];
   response!: HighlightAutoResult;
+  descriptionCode: Array<{text: string}> = DescriptionCode
 
   constructor(private githubService: GithubService) {}
 
@@ -38,8 +40,14 @@ export class CodeSnippetComponent implements OnInit{
 
     this.githubService.getSnippets(owner, repo, paths).subscribe(
       (data: SnippetGithubInterface[]) => {
-        console.log(data)
-        this.snippets = data.map(snippet => atob(snippet.content));
+
+        this.snippets = data.map((snippet, index) => {
+          return {
+            code: atob(snippet.content),
+            text: DescriptionCode[index].text
+          };
+        });
+        console.log(this.snippets)
       },
       (error) => {
         console.error('Error fetching snippets:', error);

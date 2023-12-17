@@ -5,19 +5,28 @@
       <div
         *ngFor="let snippet of snippets"
         class="code__item">
-        <div class="code__item-wrap">
+          <div class="code__item-user">
+            <div class="code__item-user-image">
+              <img src="assets/images/user.jpeg" alt="user">
+            </div>
+            <a href="#" class="code__item-user-nick">@kulakovskyi</a>
+          </div>
+        <div class="code__item-cont">
+          <div class="code__item-wrap">
           <pre>
               <code
                 style="background: var(--bg-code)"
-                [highlight]="snippet"
+                [highlight]="snippet.code"
                 [languages]="['typescript']"
                 (highlighted)="onHighlight($event)"
                 [lineNumbers]="true">
               </code>
           </pre>
+          </div>
         </div>
-
+        <div class="code__item-description">{{snippet.text}}</div>
       </div>
+
     </div>
   </div>
 

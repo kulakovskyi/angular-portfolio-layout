@@ -1,4 +1,4 @@
-.code{
+.code {
   padding: 20px;
   border-right: 1px solid var(--color-border-gray-dark);
   font-size: 18px;
@@ -8,42 +8,98 @@
   line-height: 150%;
   overflow-y: scroll;
   max-height: calc(100vh - 290px);
-  &::-webkit-scrollbar{
+
+  &::-webkit-scrollbar {
     display: block;
     width: 12px;
     padding: 3px;
     margin: 3px;
   }
-  &::-webkit-scrollbar-track{
+
+  &::-webkit-scrollbar-track {
     background-color: var(--color-border-gray-dark);
   }
-  &::-webkit-scrollbar-thumb{
+
+  &::-webkit-scrollbar-thumb {
     background-color: var(--color-gray);
   }
-  &__list{
+
+  &__title {
+    font-size: 18px;
+    font-weight: 450;
+    line-height: 20px;
+    color: var(--color-gray);
+    margin: 0 0 40px;
+  }
+
+  &__list {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 30px;
   }
-  &__item{
-    padding: 20px;
-    border-radius: 15px;
-    border: 1px solid var(--color-border-gray-dark);
-    background: var(--bg-code);
-    &-wrap{
+
+  &__item {
+    &-user{
+      display: flex;
+      align-items: center;
+      margin: 0 0 10px;
+      &-image{
+        width: 36px;
+        height: 36px;
+        object-fit: cover;
+        margin: 0 15px 0 0;
+        img{
+          width: 36px;
+          height: 36px;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+      }
+      &-nick{
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        color: var(--color-purple);
+        transition: color .3s ease;
+        &:hover{
+          color: var(--color-purple-hover);
+        }
+      }
+    }
+    &-cont {
+      padding: 20px;
+      border-radius: 15px;
+      border: 1px solid var(--color-border-gray-dark);
+      background: var(--bg-code);
+      margin: 0 0 20px;
+    }
+
+    &-description{
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 450;
+      line-height: 150%;
+      padding: 15px 0 0 0;
+      border-top: 1px solid var(--color-gray);
+    }
+
+    &-wrap {
       height: 200px;
       padding: 0 15px 0 0;
       overflow-y: scroll;
-      &::-webkit-scrollbar{
+
+      &::-webkit-scrollbar {
         display: block;
         width: 4px;
         padding: 3px;
         margin: 3px;
       }
-      &::-webkit-scrollbar-track{
+
+      &::-webkit-scrollbar-track {
         background-color: var(--color-border-gray-dark);
       }
-      &::-webkit-scrollbar-thumb{
+
+      &::-webkit-scrollbar-thumb {
         background-color: var(--color-gray);
       }
     }
