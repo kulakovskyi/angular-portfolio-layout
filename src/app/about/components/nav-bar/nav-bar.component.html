@@ -1,10 +1,30 @@
 <div class="nav">
   <div class="nav__top">
-    <div class="nav__top-title">personal-info</div>
-    <div class="nav__top-list">
-      <a [routerLink]="['bio']" class="nav__top-link">bio</a>
-      <a [routerLink]="['interests']" class="nav__top-link">interests</a>
-      <a [routerLink]="['education']" class="nav__top-link">education</a>
+    <div
+      (click)="toggleList()"
+      [ngClass]="{'open': isListOpen}"
+      class="nav__top-title">personal-info</div>
+    <div class="nav__top-list" [ngClass]="{'open': isListOpen}">
+      <a [routerLink]="['bio']"
+         [routerLinkActive]="['active']"
+         class="nav__top-link"> <img src="/assets/images/icons/folder-orange.svg" alt="folder"> bio</a>
+      <a [routerLink]="['interests']"
+         [routerLinkActive]="['active']"
+         class="nav__top-link"> <img src="/assets/images/icons/folder-green.svg" alt="folder">interests</a>
+      <a [routerLink]="['education']"
+         [routerLinkActive]="['active']"
+         class="nav__top-link"> <img src="/assets/images/icons/folder-purple.svg" alt="folder">education</a>
+    </div>
+  </div>
+  <div class="nav__bottom">
+    <div
+      (click)="toggleListContacts()"
+      [ngClass]="{'open': isListOpenContacts}"
+      class="nav__bottom-title">personal-info</div>
+    <div class="nav__bottom-list" [ngClass]="{'open': isListOpenContacts}">
+      <a href="#" class="nav__bottom-link"> <img src="/assets/images/icons/mail-line.svg" alt="folder">user@gmail.com</a>
+      <a href="#" class="nav__bottom-link"> <img src="/assets/images/icons/telegram-fill.svg" alt="folder"> @kulakovskyi</a>
+
     </div>
   </div>
 </div>

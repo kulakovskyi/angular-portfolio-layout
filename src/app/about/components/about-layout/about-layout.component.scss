@@ -1,0 +1,15 @@
+.about{
+  height: 100%;
+  min-height: 100%;
+  margin: auto;
+  &__wrapper{
+    height: 100%;
+    min-height: 100%;
+    display: flex;
+  }
+  &__nav{
+    height: 100%;
+    min-height: 100%;
+    width: 315px;
+  }
+}
