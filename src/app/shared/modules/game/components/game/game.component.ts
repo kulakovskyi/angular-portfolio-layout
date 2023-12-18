@@ -2,11 +2,20 @@ import {Component, OnInit} from '@angular/core';
 import {BOARD_COLUMNS, BOARD_ROWS, COLORS, CONTROLS, GAME_MODES} from "../../const";
 import {GameService} from "../../services/game.service";
 import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
+import {animate, state, style, transition, trigger} from "@angular/animations";
 
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.scss'],
+  animations: [
+    trigger('fadeInOut', [
+      state('void', style({
+        opacity: 0
+      })),
+      transition('void <=> *', animate(300)),
+    ]),
+  ],
   host: {
     '(document:keydown)': 'handleKeyboardEvents($event)'
   }
@@ -18,7 +27,7 @@ export class GameComponent implements OnInit{
   private interval: any;
   private tempDirection: any;
   private default_mode = 'classic';
-  private isGameOver = false;
+  public isGameOver = false;
 
   public pressedKey: string | null = null;
 
@@ -95,7 +104,7 @@ export class GameComponent implements OnInit{
 
   setColors(col: number, row: number): string {
     if (this.isGameOver) {
-      return COLORS.GAME_OVER;
+      //return COLORS.GAME_OVER;
     } else if (this.fruit.x === row && this.fruit.y === col) {
       return COLORS.FRUIT;
     } else if (this.snake.parts[0].x === row && this.snake.parts[0].y === col) {

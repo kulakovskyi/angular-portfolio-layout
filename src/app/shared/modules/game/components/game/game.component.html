@@ -9,10 +9,25 @@
         <div class="row" *ngFor="let row of board; let i = index;">
           <div class="column" [ngStyle]="{'background-color': setColors(i, j)}" *ngFor="let cell of row; let j = index"></div>
         </div>
-        <div class="start-button first-btn" [ngClass]="{'disable-clicks': gameStarted}" (click)="showMenu()">start-game</div>
-        <div class="new-game-menu" *ngIf="showMenuChecker">
+        <div
+          *ngIf="!isGameOver"
+          [@fadeInOut]
+          [ngClass]="{'disable-clicks': gameStarted}"
+          (click)="showMenu()"
+          class="start-button first-btn" >start-game</div>
+        <div
+          [@fadeInOut]
+          *ngIf="showMenuChecker"
+          class="new-game-menu"
+             >
           <span class="new-game-menu-label">Select Mode</span>
           <div class="start-button new-game-button" (click)="newGame(mode)" *ngFor="let mode of getKeys(all_modes)">{{all_modes[mode]}}</div>
+        </div>
+        <div
+          *ngIf="isGameOver"
+          [@fadeInOut]
+          class="new-game-menu">
+          <p>GAME OVER!</p>
         </div>
       </div>
     </div>

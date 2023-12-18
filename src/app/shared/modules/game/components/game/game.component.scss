@@ -209,6 +209,20 @@
   justify-content: center;
   gap: 10px;
   background: var(--gray-opacity-bg);
+  p{
+    padding: 10px 15px;
+    width: calc(100% + 30px);
+    position: relative;
+    left: -15px;
+    background: rgba(1, 22, 39, 0.84);
+    box-shadow: 1px 5px 11px 0px rgba(2, 18, 27, 0.71) inset;
+    color: var(--color-green);
+    text-align: center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: 100%;
+  }
 
   &-label {
     font-size: 14px;
