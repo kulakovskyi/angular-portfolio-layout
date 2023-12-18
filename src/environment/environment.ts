@@ -14,4 +14,7 @@ export const environment = {
     'action-type-snippet.ts'
   ],
 
+  serviceId: 'service_pcwfyef',
+  templateId: 'template_v5c64kp',
+  userIdPublic: 'ZCGg0zg6yIhAYYe6x'
 }

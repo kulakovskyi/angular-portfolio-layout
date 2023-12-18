@@ -1,1 +1,47 @@
-<p>form works!</p>
+<app-alert></app-alert>
+<div class="form">
+  <div *ngIf="submitted"
+       [@fadeInOut]
+       class="form__load">Loading...</div>
+  <div class="form__container">
+    <div class="form__wrapper">
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="form-group">
+          <label for="name" class="label" >_name:</label>
+          <input
+            formControlName="name"
+            type="text"
+            class="input"
+            id="name"
+            placeholder="_name">
+        </div>
+        <div class="form-group">
+          <label for="email" class="label" >_email:</label>
+          <input
+            formControlName="email"
+            type="text"
+            class="input"
+            id="email"
+            placeholder="_email">
+          <div
+            *ngIf="form.get('email')?.touched && form.get('email')?.invalid"
+            class="validation">
+            <small >Invalid email</small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message" class="label" >_message::</label>
+          <textarea
+            formControlName="message"
+            class="textarea"
+            id="message"
+            placeholder="_message"></textarea>
+        </div>
+        <button
+          [disabled]="form.invalid || submitted"
+          type="submit" class="btn-submit">submit-message
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -4,7 +4,29 @@
       <app-nav-bar-contacts></app-nav-bar-contacts>
     </div>
     <div class="contacts__main">
-      MAIN
+      <div class="bio">
+        <div class="bio__top">
+          <div class="bio__top-item">
+            <div class="bio__top-title">contacts <span class="close"></span></div>
+          </div>
+          <div class="bio__top-item">
+            <div class="bio__top-title">code <span class="close"></span></div>
+          </div>
+
+        </div>
+        <div class="bio__wrapper">
+          <div class="bio__personal" >
+            <app-form></app-form>
+          </div>
+          <ng-container  *ngIf="!isScreenWidthLessThan1200()">
+            <div class="bio__code" >
+              <app-form-output></app-form-output>
+            </div>
+          </ng-container>
+        </div>
+
+      </div>
+
     </div>
   </div>
 </div>

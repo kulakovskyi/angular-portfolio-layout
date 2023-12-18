@@ -12,8 +12,8 @@
     <div class="bio__personal" >
       <app-personal-info ></app-personal-info>
     </div>
-    <ng-container>
-    <div class="bio__code"  *ngIf="!isScreenWidthLessThan1200()">
+    <ng-container *ngIf="!isScreenWidthLessThan1200()">
+    <div class="bio__code"  >
       <app-code-snippet ></app-code-snippet>
     </div>
     </ng-container>

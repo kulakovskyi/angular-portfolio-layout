@@ -1,0 +1,30 @@
+.alert-wrap{
+  position: fixed;
+  z-index: 500;
+  top: 40px;
+  right: 50px;
+  max-width: 200px;
+  border-radius: 5px;
+
+}
+
+.alert {
+  padding: 10px 30px;
+  margin: 1rem 0;
+  opacity: 0.9;
+  background: var(--light-color);
+  color: #333;
+  transition: .3s ease;
+  transform: translateX(100%);
+}
+
+.alert-danger {
+  background: var(--danger-color);
+  color: var(--color-white);
+}
+
+.alert-success {
+  background: var(--success-color);
+  color: var(--color-white);
+  transform: translateX(0);
+}
