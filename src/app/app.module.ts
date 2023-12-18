@@ -12,6 +12,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HttpClientModule} from "@angular/common/http";
 import {HIGHLIGHT_OPTIONS, HighlightOptions} from "ngx-highlightjs";
 import {ContactsModule} from "./contacts/contacts.module";
+import {SelectProjectModule} from "./select-project/select-project.module";
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {ContactsModule} from "./contacts/contacts.module";
     ProjectsModule,
     TopBarModule,
     FooterModule,
-    ContactsModule
+    ContactsModule,
+    SelectProjectModule
   ],
   providers: [
     {

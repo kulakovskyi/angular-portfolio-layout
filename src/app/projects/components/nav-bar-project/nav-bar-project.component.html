@@ -22,6 +22,7 @@
           <img src="/assets/images/icons/{{input}}.svg" alt="angular">
         </div>
         <input
+          (click)="toggleMenu()"
           [checked]="selectedTech.includes(input)"
           (change)="updateSelectedTech(input)"
           type="checkbox"
