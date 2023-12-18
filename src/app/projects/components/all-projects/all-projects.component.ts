@@ -20,7 +20,6 @@ export class AllProjectsComponent implements OnInit{
   }
 
   private filterProjects() {
-    //this.filteredProjects;
   }
 
 

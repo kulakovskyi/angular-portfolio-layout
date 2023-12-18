@@ -1,7 +1,12 @@
 .single{
+  height: calc(100% - 30px);
+  @media screen and (max-width: 550px) {
+    height: auto;
+  }
   &__title{
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     font-size: 16px;
     line-height: 18px;
     font-weight: 450;
@@ -14,11 +19,17 @@
     }
   }
   &__card{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
     padding: 0 0 30px;
     border-radius: 15px;
     overflow: hidden;
     border: 1px solid var(--color-border-gray-dark);
     background: var(--bg-code);
+    @media screen and (max-width: 550px) {
+      padding: 0 0 20px;
+    }
     &-img{
       height: 160px;
       position: relative;
@@ -42,14 +53,19 @@
      }
     }
     &-des{
+      flex: 1 1 auto;
       padding: 0 30px;
       margin: 0 0 20px;
-      font-size: 18px;
+      font-size: 14px;
       font-weight: 450;
       line-height: 150%;
       color: var(--color-gray);
+      @media screen and (max-width: 550px) {
+        padding: 0 20px;
+      }
     }
     &-link{
+      align-self: flex-start;
       font-size: 14px;
       font-style: normal;
       font-weight: 450;
@@ -61,6 +77,9 @@
       background: var(--bg-btn-black);
       margin: 0 0 0 30px;
       transition: background .3s ease;
+      @media screen and (max-width: 550px) {
+        margin: 0 0 0 20px;
+      }
       &:hover{
         background: var(--bg-btn-black-hover);
       }

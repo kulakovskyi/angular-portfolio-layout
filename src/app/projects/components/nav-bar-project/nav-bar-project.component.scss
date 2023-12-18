@@ -48,7 +48,7 @@
     z-index: 7;
     flex-direction: column;
     background-color: var(--bg-color);
-    width: 300px;
+    width: 296px;
     height: calc(100% - 84px);
     display: flex;
     transform: translateX(-100%);
@@ -183,7 +183,7 @@
   &__top{
     &-list{
       @media screen and (max-width: 1200px) {
-        max-height: 149px;
+        max-height: 220px;
       }
 
     }

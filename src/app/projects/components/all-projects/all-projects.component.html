@@ -1,7 +1,9 @@
 <div class="projects">
   <div class="projects__top">
     <div class="projects__top-item">
-      <div class="projects__top-title">{{ selectedTech.join('; ') | titlecase }} <span class="close"></span></div>
+      <div
+        *ngIf="selectedTech.length !== 0"
+        class="projects__top-title">{{ selectedTech.join('; ') | titlecase }} <span class="close"></span></div>
     </div>
   </div>
   <div class="projects__wrapper">
@@ -15,6 +17,7 @@
         [icon]="project.stack"
         [tech]="project.tech"
       ></app-single-project>
+      <ng-container *ngIf="selectedTech.length === 0">Select technology...</ng-container>
     </div>
   </div>
 </div>

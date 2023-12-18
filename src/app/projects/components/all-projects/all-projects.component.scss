@@ -53,7 +53,12 @@
       max-height: calc(100vh - 186px);
     }
     @media screen and (max-width: 1200px){
-      max-height: calc(100vh - 186px);
+      padding: 40px;
+      max-height: calc(100vh - 230px);
+    }
+    @media screen and (max-width: 550px) {
+      max-height: calc(100vh - 198px);
+      padding: 20px;
     }
     &::-webkit-scrollbar{
       display: block;
@@ -78,5 +83,11 @@
     display: grid;
     gap: 30px;
     grid-template-columns: calc(33.333% - 20px) calc(33.333% - 20px) calc(33.333% - 20px);
+    @media screen and (max-width: 1800px) {
+      grid-template-columns: calc(50% - 15px) calc(50% - 15px);
+    }
+    @media screen and (max-width: 800px) {
+      grid-template-columns: 100% ;
+    }
   }
 }
