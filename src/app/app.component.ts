@@ -15,6 +15,7 @@ export class AppComponent {
   constructor(private contexts: ChildrenOutletContexts) {}
 
   getRouteAnimationData() {
+    // console.log(this.contexts.getContext('primary')?.route?.snapshot?.data)
     return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation'];
   }
 }

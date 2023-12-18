@@ -3,7 +3,9 @@
     <div class="about__nav">
       <app-nav-bar></app-nav-bar>
     </div>
-    <div class="about__main">
+    <div
+      [@routeAnimations]="getRouteAnimationData()"
+      class="about__main">
       <router-outlet></router-outlet>
     </div>
   </div>
