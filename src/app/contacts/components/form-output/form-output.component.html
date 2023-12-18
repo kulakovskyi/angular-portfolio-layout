@@ -1,1 +1,23 @@
-<p>form-output works!</p>
+<div class="output">
+  <div class="output__container">
+    <div class="output__wrapper">
+      <div class="output__code">
+<pre class="code">
+  <code>
+    <span class="gray">1</span>   <span class="pink">const</span> button <span class="pink">=</span> document.<span class="variable">querySelector</span>('#sendBtn');
+    <span class="gray">2</span>   <span class="pink">const</span> message <span class="pink">=</span> {{ '{' }}
+    <span class="gray">3</span>     name: <span class="variable">"{{message.name}}"</span>,
+    <span class="gray">4</span>     email: <span class="variable">"{{message.email}}"</span>,
+    <span class="gray">5</span>     message: <span class="variable">"{{message.message}}"</span>,
+    <span class="gray">6</span>     date: <span class="variable">"{{date}}"</span>
+    <span class="gray">7</span>   {{ '}' }};
+    <span class="gray">8</span>
+    <span class="gray">9</span>   button.addEventListener(<span class="variable">'click'</span>, () <span class="pink">=></span> {{ '{' }}
+    <span class="gray">10</span>     form.send(<span class="pink">message</span>);
+    <span class="gray">11</span>  {{ '}' }});
+  </code>
+</pre>
+      </div>
+    </div>
+  </div>
+</div>

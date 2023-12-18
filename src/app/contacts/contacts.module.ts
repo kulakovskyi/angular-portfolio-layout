@@ -9,6 +9,7 @@ import {AboutModule} from "../about/about.module";
 import {ReactiveFormsModule} from "@angular/forms";
 import {FormService} from "./services/form.service";
 import {AlertModule} from "../shared/modules/alert/alert.module";
+import {FormOutputService} from "./services/form-output.service";
 
 const routes: Routes = [
   {path: 'contacts', component: ContactsComponent}
@@ -32,7 +33,8 @@ const routes: Routes = [
     FormOutputComponent
   ],
   providers:[
-    FormService
+    FormService,
+    FormOutputService
   ]
 })
 

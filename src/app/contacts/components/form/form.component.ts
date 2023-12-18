@@ -4,6 +4,7 @@ import {MessageInterface} from "../../types/message.interface";
 import {FormService} from "../../services/form.service";
 import {AlertServices} from "../../../shared/services/alert.service";
 import {animate, state, style, transition, trigger} from "@angular/animations";
+import {FormOutputService} from "../../services/form-output.service";
 
 @Component({
   selector: 'app-form',
@@ -18,13 +19,27 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
     ]),
   ]
 })
+
+
 export class FormComponent implements OnInit {
   form!: FormGroup
   submitted = false
+  message: MessageInterface = {
+    name: "",
+    email: "",
+    message: "",
+  };
 
   constructor(private formService: FormService,
-              private alertService: AlertServices) {
+              private alertService: AlertServices,
+              private formOutputService: FormOutputService) {
   }
+
+  ngOnInit() {
+    this.initialForm()
+    this.formOutputService.currentMessage.subscribe(message => this.message = message);
+  }
+
 
   submit() {
     if (this.form.invalid) return
@@ -45,9 +60,6 @@ export class FormComponent implements OnInit {
     )
   }
 
-  ngOnInit() {
-    this.initialForm()
-  }
 
   initialForm() {
     this.form = new FormGroup({

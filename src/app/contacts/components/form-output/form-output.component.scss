@@ -1,0 +1,66 @@
+.output{
+  position: relative;
+  display: flex;
+  overflow-y: scroll;
+  padding: 50px 15px;
+  height: calc(100vh - 290px);
+  @media screen and (max-width: 1500px) {
+    max-height: calc(100vh - 186px);
+    font-size: 14px;
+    line-height: 140%;
+  }
+  @media screen and (max-width: 1200px){
+    height: calc(100vh - 186px);
+  }
+  &__container{
+    margin: auto;
+  }
+  &__wrapper{
+    width: 100%;
+  }
+}
+
+pre{
+  background: transparent;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 450;
+  line-height: 200%;
+  color: var(--color-purple);
+
+}
+
+code {
+  font-size: 16px;
+  padding: 0;
+  color: var(--color-purple);
+  @media screen and (max-width: 1625px) {
+    font-size: 14px;
+    left: 0;
+  }
+  @media screen and (max-width: 1330px) {
+    font-size: 12.5px;
+    left: 0;
+  }
+
+}
+
+.variable {
+  color: var(--color-orange);
+}
+
+.brackets {
+  color: var(--color-gray);
+}
+
+.other-text {
+  color: var(--color-purple);
+}
+
+.pink{
+  color: var(--color-pink);
+}
+
+.gray{
+  color: var(--color-gray);
+}

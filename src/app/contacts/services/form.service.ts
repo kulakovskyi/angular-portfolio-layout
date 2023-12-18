@@ -1,7 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import * as emailjs from 'emailjs-com';
-import {MessageInterface} from "../types/message.interface";
 import {environment} from "../../../environment/environment";
 
 @Injectable()
