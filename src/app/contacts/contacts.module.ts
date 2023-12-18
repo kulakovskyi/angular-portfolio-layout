@@ -2,6 +2,10 @@ import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import { ContactsComponent } from './components/contacts/contacts.component';
 import {RouterModule, Routes} from "@angular/router";
+import { NavBarContactsComponent } from './components/nav-bar-contacts/nav-bar-contacts.component';
+import { FormComponent } from './components/form/form.component';
+import { FormOutputComponent } from './components/form-output/form-output.component';
+import {AboutModule} from "../about/about.module";
 
 const routes: Routes = [
   {path: 'contacts', component: ContactsComponent}
@@ -10,10 +14,17 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    AboutModule
+  ],
+  exports: [
+    NavBarContactsComponent
   ],
   declarations: [
-    ContactsComponent
+    ContactsComponent,
+    NavBarContactsComponent,
+    FormComponent,
+    FormOutputComponent
   ]
 })
 

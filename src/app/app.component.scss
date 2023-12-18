@@ -12,6 +12,7 @@
     padding: 15px;
   }
   &__container{
+    background: var(--bg-color-main);
     position: relative;
     overflow: hidden;
     display: flex;

@@ -1,0 +1,36 @@
+<div
+  [class.active]="isMenuOpen"
+  (click)="toggleMenu()"
+  class="button-nav-mob">
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+</div>
+<div
+  [class.active]="isMenuOpen"
+  class="nav">
+  <div class="nav__bottom">
+    <div
+      (click)="toggleListContacts()"
+      [ngClass]="{'open': isListOpenContacts}"
+      class="nav__bottom-title">contacts</div>
+    <div class="nav__bottom-list" [ngClass]="{'open': isListOpenContacts}">
+      <a [href]=data.mailLinkUser class="nav__bottom-link nav__bottom-email"> <img src="/assets/images/icons/mail-line.svg" alt="folder">kulakovkyiii</a>
+      <a target="_blank" [href]=data.telegramLinkUser class="nav__bottom-link"> <img src="/assets/images/icons/telegram-fill.svg" alt="folder"> @kulakovskyi</a>
+
+    </div>
+  </div>
+  <div class="nav__top">
+    <div
+      (click)="toggleList()"
+      [ngClass]="{'open': isListOpen}"
+      class="nav__top-title">find-me-also-in</div>
+    <div class="nav__top-list" [ngClass]="{'open': isListOpen}">
+      <a target="_blank" [href]=data.instagramLinkUser class="nav__bottom-link"> <img src="/assets/images/icons/instagram-fill.svg" alt="folder">kulakovskyii</a>
+      <a target="_blank" [href]=data.linkedinLinkUser class="nav__bottom-link"> <img src="/assets/images/icons/linkedin-fill.svg" alt="folder">kulakovskyi</a>
+      <a target="_blank" [href]=data.gitHubLinkUser class="nav__bottom-link"> <img src="/assets/images/icons/git.svg" alt="folder">kulakovskyi</a>
+
+    </div>
+  </div>
+
+</div>
