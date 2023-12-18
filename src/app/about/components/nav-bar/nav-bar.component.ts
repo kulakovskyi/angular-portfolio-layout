@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Data} from "../../../data/data";
 import {debounceTime, distinctUntilChanged, fromEvent, map} from "rxjs";
+import {MediaService} from "../../../shared/services/media.service";
 
 
 @Component({
@@ -15,9 +16,15 @@ export class NavBarComponent implements OnInit{
   screenWidth!: number;
   isMenuOpen = false;
 
+  constructor(private mediaService: MediaService) {
+  }
+
   ngOnInit() {
-    this.checkScreenWidth()
-    this.initialResize()
+    this.screenWidth = this.mediaService.checkScreenWidth()
+    this.mediaService.initialResize().subscribe(width => {
+      this.screenWidth = width
+    })
+
   }
 
   toggleList() {
@@ -28,26 +35,8 @@ export class NavBarComponent implements OnInit{
     this.isListOpenContacts = !this.isListOpenContacts;
   }
 
-  initialResize(){
-    const resize$ = fromEvent(window, 'resize')
-      .pipe(
-        debounceTime(300),
-        map(() => window.innerWidth),
-        distinctUntilChanged()
-      );
-
-    resize$.subscribe((width: number) => {
-      this.screenWidth = width;
-    });
-
-  }
-
   isScreenWidthLessThan1200(): boolean {
     return this.screenWidth < 1200;
-  }
-
-  checkScreenWidth() {
-    this.screenWidth = window.innerWidth;
   }
 
   toggleMenu(): void {
