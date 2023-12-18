@@ -29,7 +29,11 @@
           (click)="toggleMenu()"
           class="header__nav-link">_projects</a>
         <ng-container *ngIf="isMenuOpen && isScreenWidthLessThan1080()">
-          <a href="" class="header__contact">_contact-me</a>
+          <a [routerLink]="['/contacts']"
+             [routerLinkActive]="['active']"
+             [routerLinkActiveOptions]="{exact: true}"
+             (click)="toggleMenu()"
+             class="header__contact">_contact-me</a>
         </ng-container>
       </div>
       <a

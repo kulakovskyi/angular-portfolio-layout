@@ -11,9 +11,9 @@ export const slideInAnimation = trigger('routeAnimations', [
         left: 0,
         width: '100%',
         height: '100%',
-        opacity: 0, // Устанавливаем начальную прозрачность
+        opacity: 0,
       }),
-    ], { optional: true }), // Делаем запрос необязательным
+    ], { optional: true }),
     query(':enter', [style({ opacity: 0 })], { optional: true }), // Изменяем начальное состояние
     query(':leave', animateChild(), { optional: true }),
     group([
