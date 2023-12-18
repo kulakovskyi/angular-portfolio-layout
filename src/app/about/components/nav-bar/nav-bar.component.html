@@ -7,7 +7,13 @@
     <div class="nav__top-list" [ngClass]="{'open': isListOpen}">
       <a [routerLink]="['bio']"
          [routerLinkActive]="['active']"
+         [routerLinkActiveOptions]="{exact: true}"
          class="nav__top-link"> <img src="/assets/images/icons/folder-orange.svg" alt="folder"> bio</a>
+      <ng-container *ngIf="isScreenWidthLessThan1200()">
+      <a [routerLink]="['bio/code']"
+         [routerLinkActive]="['active']"
+         class="nav__top-link"> <img src="/assets/images/icons/folder-gray.svg" alt="folder"> code-snippets</a>
+      </ng-container>
       <a [routerLink]="['interests']"
          [routerLinkActive]="['active']"
          class="nav__top-link"> <img src="/assets/images/icons/folder-green.svg" alt="folder">interests</a>
@@ -22,7 +28,7 @@
       [ngClass]="{'open': isListOpenContacts}"
       class="nav__bottom-title">personal-info</div>
     <div class="nav__bottom-list" [ngClass]="{'open': isListOpenContacts}">
-      <a [href]=data.mailLinkUser class="nav__bottom-link"> <img src="/assets/images/icons/mail-line.svg" alt="folder">kulakovkyiii@gmail.com</a>
+      <a [href]=data.mailLinkUser class="nav__bottom-link nav__bottom-email"> <img src="/assets/images/icons/mail-line.svg" alt="folder">kulakovkyiii</a>
       <a target="_blank" [href]=data.telegramLinkUser class="nav__bottom-link"> <img src="/assets/images/icons/telegram-fill.svg" alt="folder"> @kulakovskyi</a>
 
     </div>

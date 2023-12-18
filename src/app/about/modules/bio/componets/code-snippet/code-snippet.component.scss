@@ -1,4 +1,5 @@
 .code {
+  position: relative;
   padding: 20px;
   border-right: 1px solid var(--color-border-gray-dark);
   font-size: 18px;
@@ -8,12 +9,88 @@
   line-height: 150%;
   overflow-y: scroll;
   max-height: calc(100vh - 290px);
+  @media screen and (max-width: 1500px) {
+    padding: 20px 15px 20px 40px;
+    max-height: calc(100vh - 186px);
+  }
+  @media screen and (max-width: 1200px) {
+    border-top: none;
+    border: none;
+    max-height: 100%;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  &__wrap {
+    &::-webkit-scrollbar {
+      display: none;
+      width: 7px;
+      padding: 3px;
+      margin: 3px;
+      @media screen and (max-width: 1500px) {
+        display: block;
+      }
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: var(--color-border-gray-dark);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--color-gray);
+    }
+
+    @media screen and (max-width: 1200px) {
+      padding: 20px 15px 20px 40px;
+      overflow-y: scroll;
+      height: calc(100vh - 187px);
+    }
+
+  }
+
+  &__top {
+    display: none;
+    height: 41px;
+    width: 100%;
+    border-bottom: 1px solid var(--color-border-gray-dark);
+    grid-template-columns: 50% 50%;
+    @media screen and (max-width: 1200px) {
+      display: grid;
+    }
+
+    &-title {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      height: 100%;
+      padding: 0 60px 0 15px;
+      font-size: 13px;
+      line-height: 16px;
+      border-right: 1px solid var(--color-border-gray-dark);
+      font-weight: 400;
+      color: var(--color-gray);
+
+      .close {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        top: 50%;
+        right: 12px;
+        cursor: pointer;
+        transform: translateY(-50%);
+        background: url("/assets/images/icons/close-icon.svg") no-repeat 0 0/contain;
+      }
+    }
+  }
 
   &::-webkit-scrollbar {
     display: block;
     width: 12px;
     padding: 3px;
     margin: 3px;
+    @media screen and (max-width: 1500px) {
+      width: 7px;
+    }
   }
 
   &::-webkit-scrollbar-track {
@@ -30,6 +107,11 @@
     line-height: 20px;
     color: var(--color-gray);
     margin: 0 0 40px;
+    @media screen and (max-width: 1500px) {
+      font-size: 14px;
+      line-height: 16px;
+      margin: 0 0 25px;
+    }
   }
 
   &__list {
@@ -39,60 +121,89 @@
   }
 
   &__item {
-    &-user{
+    &-user {
       display: flex;
       align-items: center;
       margin: 0 0 10px;
-      &-image{
+
+      &-image {
         width: 36px;
         height: 36px;
         object-fit: cover;
         margin: 0 15px 0 0;
-        img{
+        @media screen and (max-width: 1500px) {
+          width: 25px;
+          height: 25px;
+        }
+
+        img {
           width: 36px;
           height: 36px;
           object-fit: cover;
           border-radius: 50%;
+          @media screen and (max-width: 1500px) {
+            width: 25px;
+            height: 25px;
+          }
         }
       }
-      &-nick{
+
+      &-nick {
         font-size: 14px;
         font-style: normal;
         font-weight: 700;
         color: var(--color-purple);
         transition: color .3s ease;
-        &:hover{
+        @media screen and (max-width: 1500px) {
+          font-size: 12px;
+        }
+
+        &:hover {
           color: var(--color-purple-hover);
         }
       }
     }
+
     &-cont {
       padding: 20px;
       border-radius: 15px;
       border: 1px solid var(--color-border-gray-dark);
       background: var(--bg-code);
       margin: 0 0 20px;
+      @media screen and (max-width: 1500px) {
+        padding: 15px;
+        border-radius: 10px;
+      }
     }
 
-    &-description{
+    &-description {
       font-size: 12px;
       font-style: normal;
       font-weight: 450;
       line-height: 150%;
       padding: 15px 0 0 0;
       border-top: 1px solid var(--color-gray);
+      @media screen and (max-width: 1500px) {
+        font-size: 10px;
+      }
     }
 
     &-wrap {
       height: 200px;
       padding: 0 15px 0 0;
       overflow-y: scroll;
+      @media screen and (max-width: 1500px) {
+        height: 170px;
+      }
 
       &::-webkit-scrollbar {
         display: block;
         width: 4px;
         padding: 3px;
         margin: 3px;
+        @media screen and (max-width: 1500px) {
+          width: 3px;
+        }
       }
 
       &::-webkit-scrollbar-track {

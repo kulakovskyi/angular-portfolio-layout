@@ -40,7 +40,7 @@ export class TopBarComponent implements OnInit{
     return this.screenWidth < 1080;
   }
 
-  checkScreenWidth(): void {
+  checkScreenWidth() {
     this.screenWidth = window.innerWidth;
   }
 

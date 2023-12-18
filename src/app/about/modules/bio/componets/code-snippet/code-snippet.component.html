@@ -1,4 +1,9 @@
 <div class="code">
+  <div class="code__top">
+    <div class="code__top-item">
+      <div class="code__top-title">code-snippets <span class="close"></span></div>
+    </div>
+  </div>
   <div class="code__wrap">
     <div class="code__title">// Code snippet showcase:</div>
     <div
@@ -11,7 +16,7 @@
             <div class="code__item-user-image">
               <img src="assets/images/user.jpeg" alt="user">
             </div>
-            <a href="#" class="code__item-user-nick">@kulakovskyi</a>
+            <a target="_blank" [href]="data.gitHubLinkUser" class="code__item-user-nick">@kulakovskyi</a>
           </div>
         <div class="code__item-cont">
           <div class="code__item-wrap">
@@ -34,8 +39,6 @@
       Loading...
     </ng-template>
   </div>
-
-
 </div>
 
 

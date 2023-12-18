@@ -5,6 +5,8 @@ import {SnippetGithubInterface} from "../../types/snippet-github.interface";
 import {environment} from "../../../../../../environment/environment";
 import {DescriptionCode} from "../../data/description-code";
 import {map, Observable} from "rxjs";
+import {Data, DataInterface} from "../../../../../data/data";
+
 
 @Component({
   selector: 'app-code-snippet',
@@ -14,6 +16,7 @@ import {map, Observable} from "rxjs";
 export class CodeSnippetComponent implements OnInit{
   response!: HighlightAutoResult;
   snippets$!: Observable<Array<{code: string, text: string}>>
+  data: DataInterface =  Data
 
   constructor(private githubService: GithubService) {}
 

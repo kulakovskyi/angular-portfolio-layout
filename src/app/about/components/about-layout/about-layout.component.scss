@@ -13,6 +13,10 @@
     min-height: 100%;
     width: 315px;
     min-width: 315px;
+    @media screen and (max-width: 1500px) {
+      width: 215px;
+      min-width: 215px;
+    }
   }
   &__main{
     flex: 1 1 auto;

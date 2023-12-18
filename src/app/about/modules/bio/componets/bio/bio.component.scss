@@ -6,8 +6,17 @@
     border-bottom: 1px solid var(--color-border-gray-dark);
     display: grid;
     grid-template-columns: 50% 50%;
+    @media screen and (max-width: 1500px) {
+      height: 41px;
+    }
     &-item{
       border-right: 1px solid var(--color-border-gray-dark);
+      &:last-child{
+        display: none;
+      }
+      @media screen and (max-width: 1200px) {
+        border: none;
+      }
     }
     &-title{
       position: relative;
@@ -20,6 +29,12 @@
       line-height: 18px;
       font-weight: 400;
       color: var(--color-gray);
+      @media screen and (max-width: 1500px) {
+        padding: 0 60px 0 15px;
+        font-size: 13px;
+        line-height: 16px;
+      }
+
       .close{
         position: absolute;
         width: 18px;
@@ -35,5 +50,10 @@
   &__wrapper{
     display: grid;
     grid-template-columns: 50% 50%;
+    @media screen and (max-width: 1200px) {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
   }
 }
