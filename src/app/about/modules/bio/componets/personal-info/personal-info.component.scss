@@ -17,6 +17,9 @@
   @media screen and (max-width: 1200px){
     max-height: calc(100vh - 186px);
   }
+  @media screen and (max-width: 550px){
+    padding: 20px 15px 20px 20px;
+  }
   &::-webkit-scrollbar{
     display: block;
     width: 12px;
@@ -24,6 +27,9 @@
     margin: 3px;
     @media screen and (max-width: 1500px) {
       width: 7px;
+    }
+    @media screen and (max-width: 550px){
+      width: 3px;
     }
   }
   &::-webkit-scrollbar-track{

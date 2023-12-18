@@ -12,9 +12,7 @@ import {Highlight} from "ngx-highlightjs";
   imports: [
     CommonModule,
     RouterModule.forChild([
-      {path: '', component: BioComponent, children:[
-
-        ]},
+      {path: '', component: BioComponent},
       {path: 'code', component: CodeSnippetComponent}
     ]),
     Highlight,

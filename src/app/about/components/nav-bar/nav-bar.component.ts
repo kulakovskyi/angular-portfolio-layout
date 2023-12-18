@@ -13,6 +13,7 @@ export class NavBarComponent implements OnInit{
   isListOpen = false;
   isListOpenContacts = false;
   screenWidth!: number;
+  isMenuOpen = false;
 
   ngOnInit() {
     this.checkScreenWidth()
@@ -47,6 +48,10 @@ export class NavBarComponent implements OnInit{
 
   checkScreenWidth() {
     this.screenWidth = window.innerWidth;
+  }
+
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 
 
