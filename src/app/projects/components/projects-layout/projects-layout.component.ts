@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./projects-layout.component.scss'],
 })
 export class ProjectsLayoutComponent {
+  selectedTech: string[] = ['angular'];
+
+
+  updateSelectedTech(tech: string[]) {
+    this.selectedTech = tech;
+  }
 
 }

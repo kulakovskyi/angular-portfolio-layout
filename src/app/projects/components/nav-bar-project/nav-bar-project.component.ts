@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {MediaService} from "../../../shared/services/media.service";
 
 @Component({
@@ -10,7 +10,9 @@ export class NavBarProjectComponent implements OnInit{
   isListOpen = false;
   screenWidth!: number;
   isMenuOpen = false;
-
+  @Output() techSelected = new EventEmitter<string[]>();
+  selectedTech: string[] = ['angular'];
+  inputCheckData: string[] = ['angular','react','vue','node_js','html','css']
   constructor(private mediaService: MediaService) {
   }
 
@@ -20,6 +22,18 @@ export class NavBarProjectComponent implements OnInit{
       this.screenWidth = width
     })
 
+  }
+
+  updateSelectedTech(tech: string): void {
+    const index = this.selectedTech.indexOf(tech);
+
+    if (index !== -1) {
+      this.selectedTech.splice(index, 1);
+    } else {
+      this.selectedTech.push(tech);
+    }
+
+    this.techSelected.emit([...this.selectedTech]);
   }
 
   toggleList() {

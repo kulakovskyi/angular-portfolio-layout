@@ -11,5 +11,5 @@ export class SingleProjectComponent {
   @Input() image: string = ''
   @Input() icon: string = ''
   @Input() description: string = ''
-
+  @Input() tech: string[] = []
 }
