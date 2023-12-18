@@ -1,0 +1,20 @@
+<div class="projects">
+  <div class="projects__top">
+    <div class="projects__top-item">
+      <div class="projects__top-title">React; Vue <span class="close"></span></div>
+    </div>
+  </div>
+  <div class="projects__wrapper">
+    <div class="projects__list">
+      <app-single-project
+        *ngFor="let project of projects; let idx = index"
+        [index]="idx"
+        [title]="project.title"
+        [image]="project.image"
+        [description]="project.description"
+        [icon]="project.stack"
+      ></app-single-project>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,62 @@
+<div
+  [class.active]="isMenuOpen"
+  (click)="toggleMenu()"
+  class="button-nav-mob">
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+</div>
+<div
+  [class.active]="isMenuOpen"
+  class="nav">
+  <div class="nav__top">
+    <div
+      (click)="toggleList()"
+      [ngClass]="{'open': isListOpen}"
+      class="nav__top-title">projects</div>
+    <div class="nav__top-list" [ngClass]="{'open': isListOpen}">
+      <div class="nav__top-item">
+        <div class="nav__top-item-img">
+          <img src="/assets/images/icons/angular.svg" alt="angular">
+        </div>
+        <input type="checkbox" id="angular" class="nav__top-item-check" checked>
+        <label class="nav__top-item-label" for="angular">Angular</label>
+      </div>
+      <div class="nav__top-item">
+        <div class="nav__top-item-img">
+          <img src="/assets/images/icons/react.svg" alt="react">
+        </div>
+        <input type="checkbox" id="react" class="nav__top-item-check">
+        <label class="nav__top-item-label" for="react">React</label>
+      </div>
+      <div class="nav__top-item">
+        <div class="nav__top-item-img">
+          <img src="/assets/images/icons/vue.svg" alt="vue">
+        </div>
+        <input type="checkbox" id="vue" class="nav__top-item-check">
+        <label class="nav__top-item-label" for="vue">Vue</label>
+      </div>
+      <div class="nav__top-item">
+        <div class="nav__top-item-img">
+          <img src="/assets/images/icons/node-js.svg" alt="node">
+        </div>
+        <input type="checkbox" id="node_js" class="nav__top-item-check">
+        <label class="nav__top-item-label" for="node_js">Node Js</label>
+      </div>
+      <div class="nav__top-item">
+        <div class="nav__top-item-img">
+          <img src="/assets/images/icons/html.svg" alt="html">
+        </div>
+        <input type="checkbox" id="html" class="nav__top-item-check" checked>
+        <label class="nav__top-item-label" for="html" >HTML</label>
+      </div>
+      <div class="nav__top-item">
+        <div class="nav__top-item-img">
+          <img src="/assets/images/icons/css.svg" alt="css">
+        </div>
+        <input type="checkbox" id="css" class="nav__top-item-check">
+        <label class="nav__top-item-label" for="css">CSS</label>
+      </div>
+    </div>
+  </div>
+</div>

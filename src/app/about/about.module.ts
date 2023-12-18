@@ -15,15 +15,18 @@ const routes: Routes = [
 
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
 
-  ],
-  declarations: [
-    AboutLayoutComponent,
-    NavBarComponent
-  ]
+    ],
+    exports: [
+        NavBarComponent
+    ],
+    declarations: [
+        AboutLayoutComponent,
+        NavBarComponent
+    ]
 })
 
 export class AboutModule{}
