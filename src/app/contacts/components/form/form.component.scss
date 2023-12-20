@@ -23,12 +23,12 @@
     z-index: 15;
   }
   @media screen and (max-width: 1500px) {
-    max-height: calc(100vh - 186px);
+    height: calc(100vh - 186px);
     font-size: 14px;
     line-height: 140%;
   }
   @media screen and (max-width: 1200px){
-    height: calc(100vh - 186px);
+    height: calc(100svh - 186px);
   }
   &__container{
     max-width: 370px;

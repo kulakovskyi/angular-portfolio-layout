@@ -54,10 +54,10 @@
     }
     @media screen and (max-width: 1200px){
       padding: 40px;
-      max-height: calc(100vh - 230px);
+      max-height: calc(100svh - 230px);
     }
     @media screen and (max-width: 550px) {
-      max-height: calc(100vh - 198px);
+      max-height: calc(100svh - 198px);
       padding: 20px;
     }
     &::-webkit-scrollbar{
