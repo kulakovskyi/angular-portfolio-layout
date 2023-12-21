@@ -16,5 +16,8 @@ export const environment = {
 
   serviceId: 'service_pcwfyef',
   templateId: 'template_v5c64kp',
-  userIdPublic: 'ZCGg0zg6yIhAYYe6x'
+  userIdPublic: 'ZCGg0zg6yIhAYYe6x',
+
+  apiKey: 'AIzaSyBmneX1FwRjQda-k7ohiTYApYL5X-_VXHo',
+  fbDBUrl: 'https://portfolio-angular-layout-default-rtdb.firebaseio.com'
 }

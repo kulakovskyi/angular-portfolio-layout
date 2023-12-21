@@ -1,6 +1,8 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {ProjectsData, ProjectsDataInterface} from "../../../projects/data/projects-data";
+import {ProjectsService} from "../../../projects/services/projects.service";
+import {catchError, map, Observable, of} from "rxjs";
+import {ProjectsDataInterface} from "../../../projects/types/projects-data.interface";
 
 @Component({
   selector: 'app-select-project',
@@ -9,17 +11,19 @@ import {ProjectsData, ProjectsDataInterface} from "../../../projects/data/projec
   encapsulation: ViewEncapsulation.None
 })
 export class SelectProjectComponent implements OnInit{
+  project$!: Observable<ProjectsDataInterface | undefined>
 
-  project: ProjectsDataInterface | undefined;
-
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute,
+              private projectsService: ProjectsService) {
   }
 
   ngOnInit() {
     const anyText = this.route.snapshot.paramMap.get('id');
-    this.project = ProjectsData.find(item => item.title === anyText);
-    console.log(anyText);
-    console.log(this.project)
+    this.project$ = this.projectsService.getInterests().pipe(
+      map(projects => projects.find(item => item.title === anyText)),
+      catchError(() => of(undefined))
+    );
+
   }
 
 }

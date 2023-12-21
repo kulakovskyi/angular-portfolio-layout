@@ -6,6 +6,7 @@ import { PersonalInfoComponent } from './componets/personal-info/personal-info.c
 import { CodeSnippetComponent } from './componets/code-snippet/code-snippet.component';
 import {GithubService} from "./services/github.service";
 import {Highlight} from "ngx-highlightjs";
+import {BioService} from "./services/bio.service";
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import {Highlight} from "ngx-highlightjs";
   ],
   providers:[
     GithubService,
+    BioService
 
   ]
 })

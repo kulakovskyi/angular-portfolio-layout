@@ -3,6 +3,7 @@ import {CommonModule} from "@angular/common";
 import { InterestsComponent } from './components/interests/interests.component';
 import {RouterModule} from "@angular/router";
 import { InterestItemComponent } from './components/interest-item/interest-item.component';
+import {InterestsService} from "./services/interests.service";
 
 
 @NgModule({
@@ -15,6 +16,9 @@ import { InterestItemComponent } from './components/interest-item/interest-item.
   declarations: [
     InterestsComponent,
     InterestItemComponent
+  ],
+  providers:[
+    InterestsService
   ]
 })
 

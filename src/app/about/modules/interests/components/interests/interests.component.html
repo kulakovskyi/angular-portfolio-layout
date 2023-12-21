@@ -6,7 +6,9 @@
     </div>
   </div>
   <div class="block-list__wrapper">
-    <div class="block-list__list">
+    <div
+      *ngIf="(interestsData$ | async) as interestsData; else loading"
+      class="block-list__list">
       <app-interest-item
         *ngFor="let item of interestsData"
         [title] = item.title
@@ -14,6 +16,7 @@
         [description]="item.text"
       ></app-interest-item>
     </div>
+    <ng-template #loading>Loading...</ng-template>
   </div>
 </div>
 

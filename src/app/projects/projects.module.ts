@@ -5,6 +5,7 @@ import {RouterModule, Routes} from "@angular/router";
 import {NavBarProjectComponent} from "./components/nav-bar-project/nav-bar-project.component";
 import { AllProjectsComponent } from './components/all-projects/all-projects.component';
 import {SingleProjectComponent} from "./components/single-project/single-project.component";
+import {ProjectsService} from "./services/projects.service";
 
 const routes: Routes = [
   {path: 'projects', component: ProjectsLayoutComponent,data: { animation: 'HomePage' }}
@@ -24,6 +25,9 @@ const routes: Routes = [
     NavBarProjectComponent,
     AllProjectsComponent,
     SingleProjectComponent,
+  ],
+  providers:[
+    ProjectsService
   ]
 })
 

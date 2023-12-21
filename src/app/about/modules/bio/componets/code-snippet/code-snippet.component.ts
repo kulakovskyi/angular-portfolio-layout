@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {GithubService} from "../../services/github.service";
 import {HighlightAutoResult} from "ngx-highlightjs";
 import {SnippetGithubInterface} from "../../types/snippet-github.interface";
 import {environment} from "../../../../../../environment/environment";
-import {DescriptionCode} from "../../data/description-code";
-import {map, Observable} from "rxjs";
+import {map, Observable, Subscription} from "rxjs";
 import {Data, DataInterface} from "../../../../../data/data";
+import {BioService} from "../../services/bio.service";
 
 
 @Component({
@@ -13,15 +13,25 @@ import {Data, DataInterface} from "../../../../../data/data";
   templateUrl: './code-snippet.component.html',
   styleUrls: ['./code-snippet.component.scss']
 })
-export class CodeSnippetComponent implements OnInit{
+export class CodeSnippetComponent implements OnInit, OnDestroy{
   response!: HighlightAutoResult;
   snippets$!: Observable<Array<{code: string, text: string}>>
   data: DataInterface =  Data
+  descriptionTextArray: Array<{text: string}> = []
+  dSub$! : Subscription
 
-  constructor(private githubService: GithubService) {}
+  constructor(private githubService: GithubService,
+              private bioService: BioService) {}
 
   ngOnInit() {
-    this.getSnippets();
+    this.dSub$ = this.bioService.getDescriptionCode().subscribe(res => {
+      this.descriptionTextArray = res
+      this.getSnippets();
+    })
+  }
+
+  ngOnDestroy() {
+    if(this.dSub$) this.dSub$.unsubscribe()
   }
 
   getSnippets() {
@@ -34,7 +44,7 @@ export class CodeSnippetComponent implements OnInit{
         return data.map((snippet, index) => {
           return {
             code: atob(snippet.content),
-            text: DescriptionCode[index].text
+            text: this.descriptionTextArray[index].text
           };
         });
       })
