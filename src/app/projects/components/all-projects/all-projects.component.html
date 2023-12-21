@@ -1,13 +1,13 @@
-<div class="projects">
-  <div class="projects__top">
-    <div class="projects__top-item">
+<div class="block-list">
+  <div class="block-list__top">
+    <div class="block-list__top-item">
       <div
         *ngIf="selectedTech.length !== 0"
-        class="projects__top-title">{{ selectedTech.join('; ') | titlecase }} <span class="close"></span></div>
+        class="block-list__top-title">{{ selectedTech.join('; ') | titlecase }} <span class="close"></span></div>
     </div>
   </div>
-  <div class="projects__wrapper">
-    <div class="projects__list">
+  <div class="block-list__wrapper">
+    <div class="block-list__list">
       <app-single-project
         *ngFor="let project of filteredProjects; let idx = index"
         [index]="idx"
