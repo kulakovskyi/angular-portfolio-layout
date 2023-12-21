@@ -4,6 +4,7 @@
       class="layout__main">
       <div
         *ngIf="(project$ | async) as project; else loading"
+        [@fadeInOut]
         class="bio">
         <div class="bio__top">
           <div class="bio__top-item">

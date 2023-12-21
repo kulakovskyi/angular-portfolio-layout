@@ -9,6 +9,7 @@
   <div class="block-list__wrapper">
     <div
       *ngIf="(projects$ | async) as projects; else loading"
+      [@fadeInOut]
       class="block-list__list">
       <app-single-project
         *ngFor="let project of projects; let idx = index"

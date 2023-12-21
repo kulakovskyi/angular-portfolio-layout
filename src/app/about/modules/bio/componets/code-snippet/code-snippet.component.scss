@@ -129,6 +129,9 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
+    &.fadeInOut {
+      transition: opacity 0.3s ease;
+    }
     @media screen and (max-width: 550px){
       gap: 20px;
     }

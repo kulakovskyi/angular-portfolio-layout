@@ -3,21 +3,14 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {MessageInterface} from "../../types/message.interface";
 import {FormService} from "../../services/form.service";
 import {AlertServices} from "../../../shared/services/alert.service";
-import {animate, state, style, transition, trigger} from "@angular/animations";
 import {FormOutputService} from "../../services/form-output.service";
+import {fadeInOut} from "../../../shared/animation/fade-animation";
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss'],
-  animations: [
-    trigger('fadeInOut', [
-      state('void', style({
-        opacity: 0
-      })),
-      transition('void <=> *', animate(300)),
-    ]),
-  ]
+  animations: [fadeInOut]
 })
 
 

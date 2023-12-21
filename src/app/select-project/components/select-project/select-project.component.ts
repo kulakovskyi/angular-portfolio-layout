@@ -3,12 +3,14 @@ import {ActivatedRoute} from "@angular/router";
 import {ProjectsService} from "../../../projects/services/projects.service";
 import {catchError, map, Observable, of} from "rxjs";
 import {ProjectsDataInterface} from "../../../projects/types/projects-data.interface";
+import {fadeInOut} from "../../../shared/animation/fade-animation";
 
 @Component({
   selector: 'app-select-project',
   templateUrl: './select-project.component.html',
   styleUrls: ['./select-project.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  animations: [fadeInOut]
 })
 export class SelectProjectComponent implements OnInit{
   project$!: Observable<ProjectsDataInterface | undefined>

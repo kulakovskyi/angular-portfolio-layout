@@ -6,12 +6,14 @@ import {environment} from "../../../../../../environment/environment";
 import {map, Observable, Subscription} from "rxjs";
 import {Data, DataInterface} from "../../../../../data/data";
 import {BioService} from "../../services/bio.service";
+import {fadeInOut} from "../../../../../shared/animation/fade-animation";
 
 
 @Component({
   selector: 'app-code-snippet',
   templateUrl: './code-snippet.component.html',
-  styleUrls: ['./code-snippet.component.scss']
+  styleUrls: ['./code-snippet.component.scss'],
+  animations: [fadeInOut]
 })
 export class CodeSnippetComponent implements OnInit, OnDestroy{
   response!: HighlightAutoResult;

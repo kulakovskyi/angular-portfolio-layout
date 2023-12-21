@@ -1,20 +1,13 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from "rxjs";
 import {AlertServices} from "../../../../services/alert.service";
-import {animate, state, style, transition, trigger} from "@angular/animations";
+import {fadeInOut} from "../../../../animation/fade-animation";
 
 @Component({
   selector: 'app-alert',
   templateUrl: './alert.component.html',
   styleUrls: ['./alert.component.scss'],
-  animations: [
-    trigger('fadeInOut', [
-      state('void', style({
-        opacity: 0
-      })),
-      transition('void <=> *', animate(300)),
-    ]),
-  ]
+  animations: [fadeInOut]
 })
 export class AlertComponent implements OnInit, OnDestroy{
   @Input() delay = 5000

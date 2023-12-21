@@ -2,20 +2,13 @@ import {Component, OnInit} from '@angular/core';
 import {BOARD_COLUMNS, BOARD_ROWS, COLORS, CONTROLS, GAME_MODES} from "../../const";
 import {GameService} from "../../services/game.service";
 import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
-import {animate, state, style, transition, trigger} from "@angular/animations";
+import {fadeInOut} from "../../../../animation/fade-animation";
 
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.scss'],
-  animations: [
-    trigger('fadeInOut', [
-      state('void', style({
-        opacity: 0
-      })),
-      transition('void <=> *', animate(300)),
-    ]),
-  ],
+  animations: [fadeInOut],
   host: {
     '(document:keydown)': 'handleKeyboardEvents($event)'
   }

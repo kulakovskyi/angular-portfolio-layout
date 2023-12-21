@@ -8,6 +8,7 @@
     <div class="code__title">// Code snippet showcase:</div>
     <div
       *ngIf="(snippets$ | async) as snippets; else loading"
+      [@fadeInOut]
       class="code__list">
       <div
         *ngFor="let snippet of snippets"
