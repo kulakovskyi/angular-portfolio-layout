@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {InterestsData, InterestsDataInterface} from "../../data/interests-data";
 
 @Component({
   selector: 'app-interests',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./interests.component.scss']
 })
 export class InterestsComponent {
+  interestsData: InterestsDataInterface[] = InterestsData
 
 }

@@ -1,7 +1,8 @@
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
-import { InterestsComponent } from './componets/interests/interests.component';
+import { InterestsComponent } from './components/interests/interests.component';
 import {RouterModule} from "@angular/router";
+import { InterestItemComponent } from './components/interest-item/interest-item.component';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import {RouterModule} from "@angular/router";
     ]),
   ],
   declarations: [
-    InterestsComponent
+    InterestsComponent,
+    InterestItemComponent
   ]
 })
 
