@@ -11,6 +11,10 @@
       <img [src]="image" alt="image">
     </div>
     <div class="single__card-des">{{ description }}</div>
-    <a [routerLink]="['/select-project', title]" class="single__card-link">view-project</a>
+    <div class="single__card-btns">
+      <a [routerLink]="['/select-project', title]" class="single__card-link">detail</a>
+      <a target="_blank" [href]=link class="single__card-link">view-project</a>
+    </div>
+
   </div>
 </div>

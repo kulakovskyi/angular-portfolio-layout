@@ -12,4 +12,5 @@ export class SingleProjectComponent {
   @Input() icon: string = ''
   @Input() description: string = ''
   @Input() tech: string[] = []
+  @Input() link: string = ''
 }

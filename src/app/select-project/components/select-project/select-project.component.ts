@@ -1,25 +1,25 @@
-import {Component, OnInit} from '@angular/core';
-import {Observable, switchMap} from "rxjs";
-import {ActivatedRoute, Params} from "@angular/router";
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {ProjectsData, ProjectsDataInterface} from "../../../projects/data/projects-data";
 
 @Component({
   selector: 'app-select-project',
   templateUrl: './select-project.component.html',
-  styleUrls: ['./select-project.component.scss']
+  styleUrls: ['./select-project.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class SelectProjectComponent implements OnInit{
 
-  project$!: Observable<any>
+  project: ProjectsDataInterface | undefined;
 
   constructor(private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.project$ = this.route.params
-      .pipe(switchMap((params: Params) => {
-       console.log(params)
-        return (params['id'])
-      }))
+    const anyText = this.route.snapshot.paramMap.get('id');
+    this.project = ProjectsData.find(item => item.title === anyText);
+    console.log(anyText);
+    console.log(this.project)
   }
 
 }

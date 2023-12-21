@@ -1,0 +1,87 @@
+.personal{
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 20px 30px;
+  border-right: 1px solid var(--color-border-gray-dark);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 450;
+  color: var(--color-gray);
+  line-height: 150%;
+  overflow-y: scroll;
+  max-height: calc(100vh - 290px);
+  @media screen and (max-width: 1500px) {
+    padding: 20px 15px 20px 20px;
+    max-height: calc(100vh - 186px);
+    font-size: 14px;
+    line-height: 140%;
+  }
+  @media screen and (max-width: 1200px){
+    max-height: calc(100svh - 186px);
+  }
+  @media screen and (max-width: 550px){
+    padding: 20px 15px 20px 0px;
+  }
+  &::-webkit-scrollbar{
+    display: block;
+    width: 12px;
+    padding: 3px;
+    margin: 3px;
+    @media screen and (max-width: 1500px) {
+      width: 7px;
+    }
+    @media screen and (max-width: 550px){
+      width: 3px;
+    }
+  }
+  &::-webkit-scrollbar-track{
+    background-color: var(--color-border-gray-dark);
+  }
+  &::-webkit-scrollbar-thumb{
+    background-color: var(--color-gray);
+  }
+
+  ul{
+    margin: 0 0 20px;
+  }
+
+  strong{
+    display: inline-block;
+    margin: 0 0 10px;
+  }
+  li{
+    margin: 0 0 10px;
+    padding: 0 0 0 20px;
+  }
+  .image{
+    &:not(:last-child){
+      margin: 0 0 20px;
+    }
+  }
+
+  .row{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-self: center;
+  }
+
+  .link{
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: 18px;
+    display: inline-flex;
+    padding: 14px 45px;
+
+    color: var(--color-white);
+    border-radius: 8px;
+    background: var(--bg-btn-black);
+    margin: 0 auto 20px;
+    transition: background 0.3s ease;
+    &:hover{
+      background: var(--bg-btn-black-hover);
+    }
+  }
+}
+
