@@ -62,25 +62,35 @@
   .row{
     display: flex;
     gap: 10px;
-    flex-wrap: wrap;
     align-self: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 20px 20px;
+    @media screen and (max-width: 550px) {
+      flex-direction: column;
+      align-self: stretch;
+    }
   }
 
   .link{
+    white-space: nowrap;
+    width: 100%;
+    text-align: center;
     font-size: 14px;
     font-style: normal;
     font-weight: 450;
     line-height: 18px;
-    display: inline-flex;
+    display: inline-block;
     padding: 14px 45px;
-
     color: var(--color-white);
     border-radius: 8px;
     background: var(--bg-btn-black);
-    margin: 0 auto 20px;
     transition: background 0.3s ease;
     &:hover{
       background: var(--bg-btn-black-hover);
+    }
+    @media screen and (max-width: 550px) {
+      min-width: 100%;
     }
   }
 }
