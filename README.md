@@ -20,6 +20,10 @@ Welcome to the Angular Portfolio App repository! This project is a dynamic portf
 ## Cross-Browser Compatibility
 The application is designed to work seamlessly across all resolutions and is fully compatible with various web browsers.
 
+## Design 
+
+Thanks [@darelova](https://www.behance.net/darelova). for the design
+
 ## Installation
 
 1. Clone the repository:
@@ -54,3 +58,7 @@ Feel free to fork and build upon this code, but please be respectful of the effo
 ## Contribution
 
 Your contributions are welcome! If you have suggestions to enhance the project or if you've encountered a bug, feel free to create an issue or submit a pull request.
+
+## License 
+
+This project is licensed under the MIT License. See the [LICENSE.md](LICENSE.md). file for more information.
