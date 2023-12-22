@@ -9,6 +9,10 @@ Welcome to the Angular Portfolio App repository! This project is a dynamic portf
 - **Angular**: The project is developed using the Angular framework.
 - **RxJS**: The RxJS library is used for reactive programming.
 - **Firebase**: Data is fetched from and stored on Firebase for a seamless backend experience.
+- **NgRx**: The NgRx library is utilized for state management in Angular applications.
+  - **Store**: NgRx Store is used to manage the state of the application in a centralized store.
+  - **Effects**: NgRx Effects are employed for managing side effects, such as asynchronous operations like fetching data from Firebase.
+  - **Selectors**: NgRx Selectors are used to efficiently select and derive slices of state from the store.
 
 ## Features
 - **Animations**: The application utilizes Angular's built-in animation features to enhance the user experience.
@@ -16,6 +20,11 @@ Welcome to the Angular Portfolio App repository! This project is a dynamic portf
 - **GitHub Code Snippets**: The app features a service that fetches and displays active code snippets from GitHub.
 - **Contact Form**: A contact form is implemented using reactive forms for efficient handling of user input.
 - **Email Submission**: Users can submit messages via the contact form, with email submissions facilitated through reactive forms.
+
+## Admin Panel
+- **Firebase Admin Console**: An admin panel is implemented on Firebase for convenient management.
+- **Portfolio Editing**: Initial portfolio editing functionality is available through the admin panel.
+- **Route**: Admin panel can be accessed via the route `/admin`.
 
 ## Cross-Browser Compatibility
 The application is designed to work seamlessly across all resolutions and is fully compatible with various web browsers.
