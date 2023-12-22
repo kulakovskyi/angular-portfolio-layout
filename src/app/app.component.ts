@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ChildrenOutletContexts} from "@angular/router";
 import {slideInAnimation} from "./shared/animation/route-animation";
+import {Store} from "@ngrx/store";
+import {getCurrentUserAction} from "./shared/store/action/get-current-user.action";
 
 
 @Component({
@@ -9,13 +11,15 @@ import {slideInAnimation} from "./shared/animation/route-animation";
   styleUrls: ['./app.component.scss'],
   animations: [slideInAnimation],
 })
-export class AppComponent {
-  title = 'angular-portfolio';
+export class AppComponent implements OnInit{
+  constructor(private contexts: ChildrenOutletContexts,
+              private store: Store) {}
 
-  constructor(private contexts: ChildrenOutletContexts) {}
+  ngOnInit() {
+    this.store.dispatch(getCurrentUserAction())
+  }
 
   getRouteAnimationData() {
-    // console.log(this.contexts.getContext('primary')?.route?.snapshot?.data)
     return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation'];
   }
 }

@@ -16,6 +16,15 @@ import {SelectProjectModule} from "./select-project/select-project.module";
 import {AuthInterceptor} from "./admin/services/auth.interceptor";
 import {AuthService} from "./admin/services/auth.service";
 import {AdminModule} from "./admin/admin.module";
+import {ActionReducerMap, StoreModule} from '@ngrx/store';
+import {StoreDevtoolsModule} from "@ngrx/store-devtools";
+import {EffectsModule} from "@ngrx/effects";
+import {GetCurrentUserEffect} from "./shared/store/effect/get-current-user.effect";
+import {reducers} from "./shared/store/reducer";
+
+export const AppReducers: ActionReducerMap<any> = {
+  'auth': reducers
+}
 
 
 @NgModule({
@@ -35,6 +44,12 @@ import {AdminModule} from "./admin/admin.module";
     ContactsModule,
     SelectProjectModule,
     AdminModule,
+    StoreModule.forRoot(AppReducers),
+    EffectsModule.forRoot([GetCurrentUserEffect]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: true,
+    }),
   ],
   providers: [
     AuthService,
