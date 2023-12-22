@@ -5,8 +5,8 @@ import {UserDataInterface} from "../../types/user-data.interface";
 import {select, Store} from "@ngrx/store";
 import {currentUserSelector} from "../../../shared/store/selectors";
 import {updateCurrentUserAction} from "../../../shared/store/action/update-current-user.action";
-import {EditService} from "../../services/edit.service";
 import {BioService} from "../../../about/modules/bio/services/bio.service";
+import {AlertServices} from "../../../shared/services/alert.service";
 
 @Component({
   selector: 'app-edit',
@@ -22,8 +22,8 @@ export class EditComponent implements OnInit, OnDestroy{
   getSnippetSub$!: Subscription
 
   constructor(private store: Store,
-              private editService: EditService,
-              private bioService: BioService) {
+              private bioService: BioService,
+              private alertService: AlertServices) {
   }
 
   ngOnInit() {
@@ -35,7 +35,6 @@ export class EditComponent implements OnInit, OnDestroy{
     })
     this.getSnippetSub$ = this.bioService.getDescriptionCode().subscribe(res => {
       const initialValues: { [key: string]: string } = {}
-      console.log(res)
       res.forEach((snippet, index) => {
         const snippetKey = `snippet_${index + 1}`;
         initialValues[snippetKey] = snippet.text;
@@ -91,6 +90,10 @@ export class EditComponent implements OnInit, OnDestroy{
     Object.keys(updateUserData).forEach((key, index) => {
       outputObject[index.toString()] = { text: updateUserData[key] };
     });
-    this.updateSnippetSub$ = this.bioService.updateDescriptionCode(outputObject).subscribe()
+    this.updateSnippetSub$ = this.bioService.updateDescriptionCode(outputObject).subscribe(() => {
+      this.alertService.success('Success')
+    }, () =>{
+      this.alertService.danger('Failure')
+    })
   }
 }

@@ -29,7 +29,6 @@ const authReducer = createReducer(
     (state, action) => ({
       ...state,
       isLoading: false,
-      isLoggedIn: true,
       currentUser: action.currentUser
     })
   ),
@@ -38,7 +37,6 @@ const authReducer = createReducer(
     (state) => ({
       ...state,
       isLoading: false,
-      isLoggedIn: false,
       currentUser: null
     })
   ),

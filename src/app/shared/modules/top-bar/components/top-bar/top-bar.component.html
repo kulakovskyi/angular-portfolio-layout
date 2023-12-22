@@ -28,6 +28,13 @@
           [routerLinkActiveOptions]="{exact: true}"
           (click)="toggleMenu()"
           class="header__nav-link">_projects</a>
+        <a
+          *ngIf="isAuthenticated"
+          [routerLink]="['/admin/edit']"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{exact: true}"
+          (click)="toggleMenu()"
+          class="header__nav-link">_admin-edit</a>
         <ng-container *ngIf="isMenuOpen && isScreenWidthLessThan1080()">
           <a [routerLink]="['/contacts']"
              [routerLinkActive]="['active']"
