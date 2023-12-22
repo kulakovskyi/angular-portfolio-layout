@@ -11,6 +11,7 @@ import {AuthGuard} from "./services/auth.guard";
 import {EditService} from "./services/edit.service";
 import {AlertModule} from "../shared/modules/alert/alert.module";
 import {QuillEditorComponent} from "ngx-quill";
+import {BioService} from "../about/modules/bio/services/bio.service";
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import {QuillEditorComponent} from "ngx-quill";
   providers:[
     AuthGuard,
     AuthService,
-    EditService
+    EditService,
+    BioService
   ]
 })
 

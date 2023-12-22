@@ -21,7 +21,7 @@ export class CodeSnippetComponent implements OnInit, OnDestroy{
   currentUser$!: Observable<UserDataInterface | null>
   response!: HighlightAutoResult;
   snippets$!: Observable<Array<{code: string, text: string}>>
-  descriptionTextArray: Array<{text: string}> = []
+  descriptionTextArray: any = []
   dSub$! : Subscription
 
   constructor(private githubService: GithubService,

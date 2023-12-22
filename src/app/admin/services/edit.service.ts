@@ -12,7 +12,7 @@ export class EditService{
 
 
   create(des: any){
-    return this.http.post(`${environment?.['fbDBUrl']}/user-data.json`, des).pipe(
+    return this.http.post(`${environment?.['fbDBUrl']}/bio-user.json`, des).pipe(
       map(res => {
         return res
       })
