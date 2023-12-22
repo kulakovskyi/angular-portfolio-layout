@@ -12,7 +12,6 @@ import {User} from "../../types/auth.interface";
 export class LoginComponent implements OnInit{
   form!: FormGroup
   submitted = false
-  message: string = ''
 
   constructor(public auth: AuthService,
               private router: Router,
@@ -20,16 +19,6 @@ export class LoginComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.route.queryParams.subscribe((params: Params) => {
-      if(params['loginAgain']){
-        this.message = 'Sign in in account'
-      } else if(params['authFailed']) {
-        this.message = 'Session has ended, please re-enter your details'
-      }
-
-
-    })
-
     this.form = new FormGroup({
       email: new FormControl(null, [
         Validators.email,
@@ -52,7 +41,7 @@ export class LoginComponent implements OnInit{
     const user: User = {...this.form.value}
     this.auth.login(user).subscribe(() => {
       this.form.reset()
-      //this.router.navigate(['/admin', 'dashboard'])
+      this.router.navigate(['/admin', 'edit'])
       this.submitted = false
     }, ()=>{
       this.submitted = false

@@ -6,6 +6,8 @@ import {AuthService} from "./services/auth.service";
 import {RouterModule} from "@angular/router";
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { EditComponent } from './components/edit/edit.component';
+import {AuthGuard} from "./services/auth.guard";
 
 @NgModule({
   imports: [
@@ -14,7 +16,8 @@ import {HttpClientModule} from "@angular/common/http";
       {
         path: '', component: AdminLayoutComponent, children: [
           {path: '', redirectTo: '/admin/login', pathMatch: 'full'},
-          {path: 'login', component: LoginComponent}
+          {path: 'login', component: LoginComponent},
+          {path: 'edit', component: EditComponent, canActivate: [AuthGuard]},
         ]
       }
     ]),
@@ -23,9 +26,11 @@ import {HttpClientModule} from "@angular/common/http";
   ],
   declarations: [
     AdminLayoutComponent,
-    LoginComponent
+    LoginComponent,
+    EditComponent
   ],
   providers:[
+    AuthGuard,
     AuthService
   ]
 })

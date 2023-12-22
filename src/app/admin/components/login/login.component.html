@@ -2,11 +2,6 @@
   <form class="form" [formGroup]="form" (ngSubmit)="submit()">
     <h2>Sign in</h2>
     <div
-      *ngIf="message"
-      class="alert alert-info">
-      {{message}}
-    </div>
-    <div
       [ngClass]="{invalid: form.get('email')?.touched && form.get('email')?.invalid}"
       class="form-group">
       <label class="label"  for="email">Email:</label>
