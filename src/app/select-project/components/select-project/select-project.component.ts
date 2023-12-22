@@ -20,6 +20,7 @@ export class SelectProjectComponent implements OnInit{
   }
 
   ngOnInit() {
+
     const anyText = this.route.snapshot.paramMap.get('id');
     this.project$ = this.projectsService.getInterests().pipe(
       map(projects => projects.find(item => item.title === anyText)),

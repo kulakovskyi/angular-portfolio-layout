@@ -18,6 +18,6 @@ export const environment = {
   templateId: 'template_v5c64kp',
   userIdPublic: 'ZCGg0zg6yIhAYYe6x',
 
-  apiKey: 'AIzaSyBmneX1FwRjQda-k7ohiTYApYL5X-_VXHo',
+  apiKey: 'AIzaSyD4C_2hscqkd04qRKGmsx41Q0CdTcpuWyg',
   fbDBUrl: 'https://portfolio-angular-layout-default-rtdb.firebaseio.com'
 }

@@ -9,10 +9,13 @@ import {ProjectsModule} from "./projects/projects.module";
 import {TopBarModule} from "./shared/modules/top-bar/top-bar.module";
 import {FooterModule} from "./shared/modules/footer/footer.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {HIGHLIGHT_OPTIONS, HighlightOptions} from "ngx-highlightjs";
 import {ContactsModule} from "./contacts/contacts.module";
 import {SelectProjectModule} from "./select-project/select-project.module";
+import {AuthInterceptor} from "./admin/services/auth.interceptor";
+import {AuthService} from "./admin/services/auth.service";
+import {AdminModule} from "./admin/admin.module";
 
 
 @NgModule({
@@ -30,9 +33,11 @@ import {SelectProjectModule} from "./select-project/select-project.module";
     TopBarModule,
     FooterModule,
     ContactsModule,
-    SelectProjectModule
+    SelectProjectModule,
+    AdminModule,
   ],
   providers: [
+    AuthService,
     {
       provide: HIGHLIGHT_OPTIONS,
       useValue: <HighlightOptions>{
@@ -46,6 +51,11 @@ import {SelectProjectModule} from "./select-project/select-project.module";
         },
       },
     },
+    {
+      provide: HTTP_INTERCEPTORS,
+      multi: true,
+      useClass: AuthInterceptor
+    }
 
   ],
   bootstrap: [AppComponent]
