@@ -5,14 +5,14 @@ import {select, Store} from "@ngrx/store";
 import {getCurrentUserAction} from "./shared/store/action/get-current-user.action";
 import {Observable} from "rxjs";
 import {isLoadingSelector} from "./shared/store/selectors";
-import {fadeInOut} from "./shared/animation/fade-animation";
+import {fadeInOutLoader} from "./shared/animation/loader-animation";
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [slideInAnimation, fadeInOut],
+  animations: [slideInAnimation, fadeInOutLoader],
 })
 export class AppComponent implements OnInit{
   isLoading$!: Observable<boolean>

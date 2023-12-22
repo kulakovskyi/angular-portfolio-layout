@@ -5,6 +5,8 @@
   top: 0;
   left: 0;
   z-index: 1000;
+  transition:  2s ease;
+  pointer-events: none;
 }
 
 .loader-wrap{
@@ -19,8 +21,9 @@
   z-index: 1000;
   background: var(--bg-btn-black);
   opacity: 1;
-  &.fadeInOut {
-    transition: opacity 2s ease;
+  transition:  2s ease;
+  &.fadeInOutLoader {
+    transition:  2s ease;
   }
 }
 
