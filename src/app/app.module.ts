@@ -22,6 +22,7 @@ import {EffectsModule} from "@ngrx/effects";
 import {GetCurrentUserEffect} from "./shared/store/effect/get-current-user.effect";
 import {reducers} from "./shared/store/reducer";
 import {UpdateCurrentUserEffect} from "./shared/store/effect/update-current-user.effect";
+import {LoaderModule} from "./shared/modules/loader/loader.module";
 
 export const AppReducers: ActionReducerMap<any> = {
   'auth': reducers
@@ -32,26 +33,27 @@ export const AppReducers: ActionReducerMap<any> = {
   declarations: [
     AppComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    HomeModule,
-    AboutModule,
-    ProjectsModule,
-    TopBarModule,
-    FooterModule,
-    ContactsModule,
-    SelectProjectModule,
-    AdminModule,
-    StoreModule.forRoot(AppReducers),
-    EffectsModule.forRoot([GetCurrentUserEffect, UpdateCurrentUserEffect]),
-    StoreDevtoolsModule.instrument({
-      maxAge: 25,
-      logOnly: true,
-    }),
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        HomeModule,
+        AboutModule,
+        ProjectsModule,
+        TopBarModule,
+        FooterModule,
+        ContactsModule,
+        SelectProjectModule,
+        AdminModule,
+        StoreModule.forRoot(AppReducers),
+        EffectsModule.forRoot([GetCurrentUserEffect, UpdateCurrentUserEffect]),
+        StoreDevtoolsModule.instrument({
+            maxAge: 25,
+            logOnly: true,
+        }),
+        LoaderModule,
+    ],
   providers: [
     AuthService,
     {

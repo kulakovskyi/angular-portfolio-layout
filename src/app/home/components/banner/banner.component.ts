@@ -12,8 +12,7 @@ import {currentUserSelector} from "../../../shared/store/selectors";
 export class BannerComponent implements OnInit{
   currentUser$!: Observable<UserDataInterface | null>
 
-  constructor(private store: Store) {
-  }
+  constructor(private store: Store) {}
 
   ngOnInit() {
     this.currentUser$ = this.store.pipe(select(currentUserSelector))

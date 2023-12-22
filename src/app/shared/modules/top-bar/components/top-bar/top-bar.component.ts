@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {debounceTime, distinctUntilChanged, fromEvent, map} from "rxjs";
+import {Observable} from "rxjs";
 import {MediaService} from "../../../../services/media.service";
+import {UserDataInterface} from "../../../../../admin/types/user-data.interface";
+import {select, Store} from "@ngrx/store";
+import {currentUserSelector} from "../../../../store/selectors";
 
 @Component({
   selector: 'app-top-bar',
@@ -8,13 +11,15 @@ import {MediaService} from "../../../../services/media.service";
   styleUrls: ['./top-bar.component.scss']
 })
 export class TopBarComponent implements OnInit{
-
+  currentUser$!: Observable<UserDataInterface | null>
   isMenuOpen = false;
   screenWidth!: number;
 
-  constructor(private mediaService: MediaService) { }
+  constructor(private mediaService: MediaService,
+              private store: Store) { }
 
   ngOnInit() {
+    this.currentUser$ = this.store.pipe(select(currentUserSelector))
     this.screenWidth = this.mediaService.checkScreenWidth()
     this.mediaService.initialResize().subscribe(width => {
       this.screenWidth = width

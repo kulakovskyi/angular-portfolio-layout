@@ -1,3 +1,6 @@
+<app-loader
+  [@fadeInOut]
+  *ngIf="(isLoading$ | async)"></app-loader>
 <div class="wrapper">
   <div class="wrapper__container">
     <app-top-bar></app-top-bar>

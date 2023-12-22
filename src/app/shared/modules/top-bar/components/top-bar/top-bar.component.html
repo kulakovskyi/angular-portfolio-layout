@@ -1,6 +1,6 @@
 <div class="header">
     <div class="header__row">
-      <a [routerLink]="['/']" class="header__name">kulakovskyi</a>
+      <a [routerLink]="['/']" class="header__name">{{ (currentUser$ | async)?.github }}</a>
       <div class="header__burger"
            [class.active]="isMenuOpen"
            (click)="toggleMenu()">
