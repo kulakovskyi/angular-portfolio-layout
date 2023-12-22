@@ -5,8 +5,8 @@
         <h2>User info</h2>
         <div
           class="form-group">
-          <label class="label"  for="user_name">User name</label>
-          <input class="input" id='user_name' type="text" formControlName="user_name" placeholder="User-name">
+          <label class="label"  for="user">User name</label>
+          <input class="input" id='user' type="text" formControlName="user" placeholder="User-name">
         </div>
         <div
           class="form-group">
@@ -39,7 +39,7 @@
           <input class="input" id='mailLinkUser' type="text" formControlName="mailLinkUser" placeholder="Mail Link User">
         </div>
         <button
-          [disabled]="formUser.invalid || submitted"
+          [disabled]="formUser.invalid"
           type="submit"
           class="btn-submit">Save
         </button>
