@@ -21,6 +21,7 @@ import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {EffectsModule} from "@ngrx/effects";
 import {GetCurrentUserEffect} from "./shared/store/effect/get-current-user.effect";
 import {reducers} from "./shared/store/reducer";
+import {UpdateCurrentUserEffect} from "./shared/store/effect/update-current-user.effect";
 
 export const AppReducers: ActionReducerMap<any> = {
   'auth': reducers
@@ -45,7 +46,7 @@ export const AppReducers: ActionReducerMap<any> = {
     SelectProjectModule,
     AdminModule,
     StoreModule.forRoot(AppReducers),
-    EffectsModule.forRoot([GetCurrentUserEffect]),
+    EffectsModule.forRoot([GetCurrentUserEffect, UpdateCurrentUserEffect]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: true,

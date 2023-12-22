@@ -5,6 +5,7 @@ import {Observable, Subscription} from "rxjs";
 import {UserDataInterface} from "../../types/user-data.interface";
 import {select, Store} from "@ngrx/store";
 import {currentUserSelector} from "../../../shared/store/selectors";
+import {updateCurrentUserAction} from "../../../shared/store/action/update-current-user.action";
 
 @Component({
   selector: 'app-edit',
@@ -48,6 +49,7 @@ export class EditComponent implements OnInit, OnDestroy{
 
   submitUser() {
     if(this.formUser.invalid) return
-    this.updateUserDataSub$ = this.editService.updateUserData(this.formUser.value).subscribe()
+    const updateUserData = {...this.formUser.value}
+    this.store.dispatch(updateCurrentUserAction({currentUserInput: updateUserData}))
   }
 }
