@@ -9,12 +9,14 @@ import {
   updateCurrentUserSuccessAction
 } from "../action/update-current-user.action";
 import {UserDataInterface} from "../../../admin/types/user-data.interface";
+import {AlertServices} from "../../services/alert.service";
 
 @Injectable()
 
 export class UpdateCurrentUserEffect{
   constructor(private actions$: Actions,
-              private editService: EditService) {
+              private editService: EditService,
+              private alertService: AlertServices) {
   }
 
   updateCurrentUser$ = createEffect(() =>
@@ -23,9 +25,11 @@ export class UpdateCurrentUserEffect{
       switchMap(({currentUserInput}) => {
         return this.editService.updateUserData(currentUserInput).pipe(
           map((currentUser: UserDataInterface) => {
+            this.alertService.success('Success')
             return updateCurrentUserSuccessAction({currentUser})
           }),
           catchError((errorResponse: HttpErrorResponse) => {
+            this.alertService.danger('Failure')
             return of(
               updateCurrentUserFailureAction({errors: errorResponse.error})
             )

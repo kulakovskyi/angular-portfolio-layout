@@ -23,6 +23,9 @@ import {GetCurrentUserEffect} from "./shared/store/effect/get-current-user.effec
 import {reducers} from "./shared/store/reducer";
 import {UpdateCurrentUserEffect} from "./shared/store/effect/update-current-user.effect";
 import {LoaderModule} from "./shared/modules/loader/loader.module";
+import {QuillModule} from "ngx-quill";
+
+
 
 export const AppReducers: ActionReducerMap<any> = {
   'auth': reducers
@@ -53,6 +56,7 @@ export const AppReducers: ActionReducerMap<any> = {
             logOnly: true,
         }),
         LoaderModule,
+        QuillModule.forRoot()
     ],
   providers: [
     AuthService,

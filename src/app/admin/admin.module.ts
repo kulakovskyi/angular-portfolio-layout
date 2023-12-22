@@ -9,6 +9,8 @@ import {HttpClientModule} from "@angular/common/http";
 import { EditComponent } from './components/edit/edit.component';
 import {AuthGuard} from "./services/auth.guard";
 import {EditService} from "./services/edit.service";
+import {AlertModule} from "../shared/modules/alert/alert.module";
+import {QuillEditorComponent} from "ngx-quill";
 
 @NgModule({
   imports: [
@@ -23,7 +25,9 @@ import {EditService} from "./services/edit.service";
       }
     ]),
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AlertModule,
+    QuillEditorComponent,
   ],
   declarations: [
     AdminLayoutComponent,

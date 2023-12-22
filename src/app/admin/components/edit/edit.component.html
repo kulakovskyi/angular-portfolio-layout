@@ -1,3 +1,4 @@
+<app-alert></app-alert>
 <div class="edit">
   <div class="edit__row">
     <div class="edit__user-form">
@@ -43,6 +44,13 @@
           type="submit"
           class="btn-submit">Save
         </button>
+      </form>
+    </div>
+    <div class="edit__user-bio">
+      <form>
+        <div class="form-group">
+          <quill-editor formControlName="image" placeholder="Photo..." [required]="true"></quill-editor>
+        </div>
       </form>
     </div>
   </div>

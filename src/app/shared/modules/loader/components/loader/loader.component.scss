@@ -18,6 +18,7 @@
   left: 0;
   z-index: 1000;
   background: var(--bg-btn-black);
+  opacity: 1;
   &.fadeInOut {
     transition: opacity 2s ease;
   }

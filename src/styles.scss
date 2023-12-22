@@ -10,6 +10,16 @@
 @import "./assets/styles/card";
 @import "./assets/styles/form";
 
+@import "~quill/dist/quill.core.css";
+@import "~quill/dist/quill.snow.css";
+
+.ql-editor{
+  padding: 40px 30px;
+  border: 2px solid #FFFFFF;
+  border-radius: 4px;
+}
+
+
 
 body{
   overscroll-behavior: none;

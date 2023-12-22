@@ -1,6 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {EditService} from "../../services/edit.service";
 import {Observable, Subscription} from "rxjs";
 import {UserDataInterface} from "../../types/user-data.interface";
 import {select, Store} from "@ngrx/store";
@@ -17,8 +16,7 @@ export class EditComponent implements OnInit, OnDestroy{
   currentUser$!: Observable<UserDataInterface | null>
   updateUserDataSub$!: Subscription
 
-  constructor(private editService: EditService,
-              private store: Store) {
+  constructor(private store: Store) {
   }
 
   ngOnInit() {
