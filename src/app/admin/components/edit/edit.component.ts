@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-edit',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./edit.component.scss']
 })
 export class EditComponent {
+  formUser!: FormGroup
+  submitted = false
 
+  submitUser() {
+
+  }
 }

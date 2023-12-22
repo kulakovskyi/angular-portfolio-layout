@@ -8,6 +8,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { EditComponent } from './components/edit/edit.component';
 import {AuthGuard} from "./services/auth.guard";
+import {EditService} from "./services/edit.service";
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import {AuthGuard} from "./services/auth.guard";
   ],
   providers:[
     AuthGuard,
-    AuthService
+    AuthService,
+    EditService
   ]
 })
 
