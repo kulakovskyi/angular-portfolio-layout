@@ -10,8 +10,6 @@ import {User} from "../../types/auth.interface";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit{
-
-
   form!: FormGroup
   submitted = false
   message: string = ''
@@ -24,9 +22,9 @@ export class LoginComponent implements OnInit{
   ngOnInit() {
     this.route.queryParams.subscribe((params: Params) => {
       if(params['loginAgain']){
-        this.message = 'Пожалуйста войдите в аккаунт'
+        this.message = 'Sign in in account'
       } else if(params['authFailed']) {
-        this.message = 'Сессия истекла, введите данные заново'
+        this.message = 'Session has ended, please re-enter your details'
       }
 
 
@@ -54,7 +52,6 @@ export class LoginComponent implements OnInit{
     const user: User = {...this.form.value}
     this.auth.login(user).subscribe(() => {
       this.form.reset()
-      console.log('login')
       //this.router.navigate(['/admin', 'dashboard'])
       this.submitted = false
     }, ()=>{

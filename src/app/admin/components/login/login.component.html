@@ -1,49 +1,44 @@
 <div class="wrapper">
   <form class="form" [formGroup]="form" (ngSubmit)="submit()">
-    <h2>Войти в панель администратора</h2>
-    <div
-      *ngIf="auth.error$ | async as error"
-      class="alert alert-danger"
-    >
-      {{error}}
-    </div>
+    <h2>Sign in</h2>
     <div
       *ngIf="message"
-      class="alert alert-info"
-    >
+      class="alert alert-info">
       {{message}}
     </div>
     <div
       [ngClass]="{invalid: form.get('email')?.touched && form.get('email')?.invalid}"
-      class="form-control">
-      <label for="email">Email:</label>
-      <input id='email' type="email" formControlName="email">
+      class="form-group">
+      <label class="label"  for="email">Email:</label>
+      <input  class="input" id='email' type="email" formControlName="email" placeholder="Email">
       <div
         *ngIf="form.get('email')?.touched && form.get('email')?.invalid"
         class="validation">
-        <small *ngIf="form.get('email')?.hasError('required')">Поле не может быть пустым</small>
-        <small *ngIf="form.get('email')?.hasError('email')">Введите коректный имейл</small>
+        <small *ngIf="form.get('email')?.hasError('required')">
+          Field cannot be empty</small>
+        <small *ngIf="form.get('email')?.hasError('email')">Enter a correct email</small>
       </div>
     </div>
     <div
       [ngClass]="{invalid: form.get('password')?.touched && form.get('password')?.invalid}"
-      class="form-control">
-      <label for="password">Password:</label>
-      <input id='password' type="email" formControlName="password">
+      class="form-group">
+      <label class="label"  for="password">Password:</label>
+      <input class="input" id='password' type="email" formControlName="password" placeholder="Password">
       <div
         *ngIf="form.get('password')?.touched && form.get('password')?.invalid"
         class="validation">
-        <small *ngIf="form.get('password')?.hasError('required')">Поле не может быть пустым</small>
+        <small *ngIf="form.get('password')?.hasError('required')">
+          Field cannot be empty</small>
         <small *ngIf="form.get('password')?.hasError('minlength')">
-          Пароль должен содержать не меньше {{ form.get('password')?.errors?.['minlength']?.['requiredLength'] }}
-          символов.
-          Сейчас {{ form.get('password')?.errors?.['minlength']?.['actualLength'] }}</small>
+          The password must contain at least {{ form.get('password')?.errors?.['minlength']?.['requiredLength'] }}
+          symbols.
+          Now {{ form.get('password')?.errors?.['minlength']?.['actualLength'] }}</small>
       </div>
     </div>
     <button
       [disabled]="form.invalid || submitted"
       type="submit"
-      class="btn">Login
+      class="btn-submit">Login
     </button>
   </form>
 </div>

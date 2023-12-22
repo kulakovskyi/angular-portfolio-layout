@@ -39,7 +39,7 @@ export class AuthService{
   }
 
   private handleError(error: HttpErrorResponse){
-    const {message} = error.error.error
+    const {message} = error.error.message
     switch (message){
       case 'INVALID_LOGIN_CREDENTIALS':
         this.error$.next('Invalid password or email')
@@ -47,7 +47,7 @@ export class AuthService{
       case 'INVALID_PASSWORD':
         this.error$.next('Invalid password')
         break
-      case 'INVALID_NOT_FOUND':
+      case 'EMAIL_NOT_FOUND':
         this.error$.next('Invalid email')
         break
     }
