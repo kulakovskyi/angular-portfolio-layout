@@ -1,8 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {Data, DataInterface} from "../../../data/data";
 import {EditService} from "../../services/edit.service";
-import {Subscription} from "rxjs";
+import {Observable, Subscription} from "rxjs";
+import {UserDataInterface} from "../../types/user-data.interface";
+import {select, Store} from "@ngrx/store";
+import {currentUserSelector} from "../../../shared/store/selectors";
 
 @Component({
   selector: 'app-edit',
@@ -11,22 +13,23 @@ import {Subscription} from "rxjs";
 })
 export class EditComponent implements OnInit, OnDestroy{
   formUser!: FormGroup
-  data: DataInterface = Data
-  userDataSub$!: Subscription
+  currentUser$!: Observable<UserDataInterface | null>
   updateUserDataSub$!: Subscription
 
-  constructor(private editService: EditService) {
+  constructor(private editService: EditService,
+              private store: Store) {
   }
 
   ngOnInit() {
+    this.currentUser$ = this.store.pipe(select(currentUserSelector))
     this.initialFormUser()
-    this.userDataSub$ = this.editService.getUserData().subscribe(res => {
-      this.formUser.patchValue(res)
+    this.currentUser$.subscribe(userData => {
+      if(userData) this.formUser.patchValue(userData)
     })
+
   }
 
   ngOnDestroy() {
-    if(this.userDataSub$) this.userDataSub$.unsubscribe()
     if(this.updateUserDataSub$) this.updateUserDataSub$.unsubscribe()
   }
 

@@ -17,7 +17,7 @@
             <div class="code__item-user-image">
               <img src="assets/images/user.jpeg" alt="user">
             </div>
-            <a target="_blank" [href]="data.gitHubLinkUser" class="code__item-user-nick">@kulakovskyi</a>
+            <a target="_blank" [href]="(currentUser$ | async)?.gitHubLinkUser" class="code__item-user-nick">@kulakovskyi</a>
           </div>
         <div class="code__item-cont">
           <div class="code__item-wrap">

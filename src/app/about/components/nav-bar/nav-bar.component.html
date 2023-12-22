@@ -43,8 +43,8 @@
       [ngClass]="{'open': isListOpenContacts}"
       class="nav__bottom-title">contacts</div>
     <div class="nav__bottom-list" [ngClass]="{'open': isListOpenContacts}">
-      <a [href]=data.mailLinkUser class="nav__bottom-link nav__bottom-email"> <img src="/assets/images/icons/mail-line.svg" alt="folder">kulakovkyiii</a>
-      <a target="_blank" [href]=data.telegramLinkUser class="nav__bottom-link"> <img src="/assets/images/icons/telegram-fill.svg" alt="folder"> @kulakovskyi</a>
+      <a [href]='(currentUser$ | async)?.mailLinkUser' class="nav__bottom-link nav__bottom-email"> <img src="/assets/images/icons/mail-line.svg" alt="folder">kulakovkyiii</a>
+      <a target="_blank" [href]='(currentUser$ | async)?.telegramLinkUser' class="nav__bottom-link"> <img src="/assets/images/icons/telegram-fill.svg" alt="folder"> @kulakovskyi</a>
 
     </div>
   </div>

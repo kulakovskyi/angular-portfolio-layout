@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Data} from "../../../data/data";
 import {MediaService} from "../../../shared/services/media.service";
+import {Observable} from "rxjs";
+import {UserDataInterface} from "../../../admin/types/user-data.interface";
+import {select, Store} from "@ngrx/store";
+import {currentUserSelector} from "../../../shared/store/selectors";
 
 @Component({
   selector: 'app-nav-bar-contacts',
@@ -8,16 +11,18 @@ import {MediaService} from "../../../shared/services/media.service";
   styleUrls: ['./nav-bar-contacts.component.scss']
 })
 export class NavBarContactsComponent implements OnInit{
-  data=  Data
+  currentUser$!: Observable<UserDataInterface | null>
   isListOpen = false;
   isListOpenContacts = false;
   screenWidth!: number;
   isMenuOpen = false;
 
-  constructor(private mediaService: MediaService) {
+  constructor(private mediaService: MediaService,
+              private store: Store) {
   }
 
   ngOnInit() {
+    this.currentUser$ = this.store.pipe(select(currentUserSelector))
     this.screenWidth = this.mediaService.checkScreenWidth()
     this.mediaService.initialResize().subscribe(width => {
       this.screenWidth = width

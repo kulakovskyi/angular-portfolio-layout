@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Data} from "../../../data/data";
-import {debounceTime, distinctUntilChanged, fromEvent, map} from "rxjs";
 import {MediaService} from "../../../shared/services/media.service";
+import {select, Store} from "@ngrx/store";
+import {Observable} from "rxjs";
+import {UserDataInterface} from "../../../admin/types/user-data.interface";
+import {currentUserSelector} from "../../../shared/store/selectors";
 
 
 @Component({
@@ -10,16 +12,18 @@ import {MediaService} from "../../../shared/services/media.service";
   styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent implements OnInit{
-  data=  Data
+  currentUser$!: Observable<UserDataInterface | null>
   isListOpen = false;
   isListOpenContacts = false;
   screenWidth!: number;
   isMenuOpen = false;
 
-  constructor(private mediaService: MediaService) {
+  constructor(private mediaService: MediaService,
+              private store: Store) {
   }
 
   ngOnInit() {
+    this.currentUser$ = this.store.pipe(select(currentUserSelector))
     this.screenWidth = this.mediaService.checkScreenWidth()
     this.mediaService.initialResize().subscribe(width => {
       this.screenWidth = width
