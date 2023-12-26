@@ -49,10 +49,15 @@ export const ProjectsData: ProjectsDataInterface[] = [
   {
     title: '_cost_accounting ',
     image: '/assets/images/projects/project3/project3-main.png',
+    arrayImg: [
+      '/assets/images/projects/project3/screenshot1.png',
+      '/assets/images/projects/project3/screenshot2.png',
+    ],
     description: 'React Cost Accounting" is a minimalist task management app inspired by the simplicity of a to-do list. Built on React, it provides a clean interface for creating, editing, and marking tasks as complete. The app emphasizes quick task management, making it easy for users to stay organized and focused.',
     tech: ['react', 'html', 'css'],
-    linkProject: 'https://github.com/kulakovskyi/twitter-angular-realworld',
-    stack: '/assets/images/icons/react-icon.svg'
+    linkProject: 'https://github.com/kulakovskyi/cost-accounting',
+    stack: '/assets/images/icons/react-icon.svg',
+    information: '<ul><li>React Income Tracker App<ul><li>This mini-application, developed using React, allows users to track their income efficiently. The app features a straightforward interface for adding and viewing income records.</li></ul></li><li>Features<ul><li>Easily add new income records by specifying:<ul><li>Date of income receipt.</li><li>Source of income (e.g., salary, freelance, investments).</li><li>Income amount.</li></ul></li><li>User-friendly interface for viewing and filtering income records by date, source, or other parameters.</li><li>Visualize and analyze income data through built-in charting and reporting functionality.</li><li>Responsive design ensures a seamless user experience on both desktop and mobile devices.</li></ul></li><li>Technologies<ul><li>React: Used for building the user interface and enabling dynamic user interaction.</li><li>State Management: Employing state management (e.g., Redux or Context API) for efficient control of the application state.</li><li>Routing: React Router for navigation and state management during page transitions.</li><li>Charts: Utilizing chart libraries like Chart.js or D3.js for visualizing data.</li><li>CSS-in-JS: Styling components using the CSS-in-JS approach (e.g., Styled-components).</li></ul></li><li>Getting Started<ul><li>Install dependencies: npm install</li><li>Start the application: npm start</li><li>Open http://localhost:3000 in your browser.</li></ul></li><li>Usage<ul><li>Add income records using the provided interface.</li><li>View and filter income data as needed.</li><li>Explore charts and reports for better insights into your financial situation.</li></ul></li><li>Contributing<ul><li>Feel free to contribute by submitting issues or pull requests.</li></ul></li></ul></li></ul>\n'
   },
 
 
