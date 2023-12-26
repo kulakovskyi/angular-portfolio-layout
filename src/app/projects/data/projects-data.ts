@@ -31,6 +31,22 @@ export const ProjectsData: ProjectsDataInterface[] = [
     information: '<ul><li>Angular: The project is developed using the Angular framework.</li><li>RxJS: The RxJS library is used for reactive programming.</li><li>Firebase: Data is fetched from and stored on Firebase for a seamless backend experience.</li></ul><ul><li>Animations: The application utilizes Angular\'s built-in animation features to enhance the user experience.</li><li>Snake Game: Enjoy a mini Snake game on the start screen for some added fun.</li><li>GitHub Code Snippets: The app features a service that fetches and displays active code snippets from GitHub.</li><li>Contact Form: A contact form is implemented using reactive forms for efficient handling of user input.</li><li>Email Submission: Users can submit messages via the contact form, with email submissions facilitated through reactive forms.</li></ul><p>Cross-Browser Compatibility: The application is designed to work seamlessly across all resolutions and is fully compatible with various web browsers.</p>\n'
   },
   {
+    title: '_blog-MEAN ',
+    image: '/assets/images/projects/project4/project4-main.png',
+    arrayImg: ['/assets/images/projects/project4/gif.gif',
+      '/assets/images/projects/project4/screenshot1.png',
+      '/assets/images/projects/project4/screenshot2.png',
+      '/assets/images/projects/project4/screenshot3.png',
+      '/assets/images/projects/project4/screenshot4.png'
+    ],
+    description: '\n' +
+      'This application, developed with Angular for the frontend, Node.js and Express for the backend, and MongoDB for the database, delivers a dynamic and scalable web experience with features including user authentication, real-time communication, and efficient data storage.',
+    tech: ['angular', 'html', 'css','node_js'],
+    linkProject: 'https://github.com/kulakovskyi/angular-blog-MEAN',
+    stack: '/assets/images/icons/angular-icon.svg',
+    information: '<ul><li>Angular Frontend:</li><ul><li>Developed using Angular, a TypeScript-based framework</li><li>Utilizes two-way data binding, dependency injection, and modular component-based architecture</li></ul><li>Node.js and Express Backend:</li><ul><li>Built on Node.js for fast and scalable server-side JavaScript</li><li>Uses Express for routing, middleware, and backend functionalities</li><li>Implements RESTful APIs for efficient frontend-backend communication</li></ul><li>MongoDB Database:</li><ul><li>Uses MongoDB, a NoSQL database, for flexible data storage in JSON-like BSON format</li><li>Seamless integration with Node.js using the official MongoDB Node.js driver</li></ul><li>Features:</li><ul><li>User Authentication and Authorization:</li><ul><li>Implements secure user authentication and authorization mechanisms</li></ul><li>Data Storage and Retrieval:</li><ul><li>Efficient data storage and retrieval using MongoDB</li></ul><li>Real-time Communication:</li><ul><li>Utilizes WebSocket or other real-time communication protocols</li></ul><li>Scalability and Performance:</li><ul><li>Designed for scalability and optimal performance</li></ul></ul><li>Deployment:</li><ul><li>Can be deployed on various platforms</li><li>Containerization options like Docker for simplified deployment and management</li></ul><li>Conclusion:</li><ul><li>Comprehensive web solution combining Angular, Node.js, Express, and MongoDB</li><li>Delivers a feature-rich and scalable user experience</li></ul></ul>\n'
+  },
+  {
     title: '_cost_accounting ',
     image: '/assets/images/projects/project3/project3-main.png',
     description: 'React Cost Accounting" is a minimalist task management app inspired by the simplicity of a to-do list. Built on React, it provides a clean interface for creating, editing, and marking tasks as complete. The app emphasizes quick task management, making it easy for users to stay organized and focused.',
