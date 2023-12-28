@@ -47,6 +47,21 @@ export const ProjectsData: ProjectsDataInterface[] = [
     information: '<ul><li>Angular Frontend:</li><ul><li>Developed using Angular, a TypeScript-based framework</li><li>Utilizes two-way data binding, dependency injection, and modular component-based architecture</li></ul><li>Node.js and Express Backend:</li><ul><li>Built on Node.js for fast and scalable server-side JavaScript</li><li>Uses Express for routing, middleware, and backend functionalities</li><li>Implements RESTful APIs for efficient frontend-backend communication</li></ul><li>MongoDB Database:</li><ul><li>Uses MongoDB, a NoSQL database, for flexible data storage in JSON-like BSON format</li><li>Seamless integration with Node.js using the official MongoDB Node.js driver</li></ul><li>Features:</li><ul><li>User Authentication and Authorization:</li><ul><li>Implements secure user authentication and authorization mechanisms</li></ul><li>Data Storage and Retrieval:</li><ul><li>Efficient data storage and retrieval using MongoDB</li></ul><li>Real-time Communication:</li><ul><li>Utilizes WebSocket or other real-time communication protocols</li></ul><li>Scalability and Performance:</li><ul><li>Designed for scalability and optimal performance</li></ul></ul><li>Deployment:</li><ul><li>Can be deployed on various platforms</li><li>Containerization options like Docker for simplified deployment and management</li></ul><li>Conclusion:</li><ul><li>Comprehensive web solution combining Angular, Node.js, Express, and MongoDB</li><li>Delivers a feature-rich and scalable user experience</li></ul></ul>\n'
   },
   {
+    title: '_asana-clone ',
+    image: '/assets/images/projects/project5/project5-main.png',
+    arrayImg: ['/assets/images/projects/project5/gif.gif',
+      '/assets/images/projects/project5/screenshot1.png',
+      '/assets/images/projects/project5/screenshot2.png',
+      '/assets/images/projects/project5/screenshot3.png',
+    ],
+    description: '\n' +
+      'The Task Tracker is a concise Angular project inspired by Asana, streamlining project management with board editing, dynamic card manipulation, and seamless updates. It leverages RxJS, NGRX, and Angular Material for a responsive user experience, integrates Google Firebase for authentication, and employs CdkDrop for efficient drag-and-drop functionality in task management.',
+    tech: ['angular', 'html', 'css','node_js'],
+    linkProject: 'https://github.com/kulakovskyi/angular-asana-clone',
+    stack: '/assets/images/icons/angular-icon.svg',
+    information: '<ul><li>Angular Asana clone App<ul><ul><li>A simplified task tracking app, inspired by Asana, implemented using Angular.</li><li>Edit boards, cards, and tracks.</li><li>Add, delete, and update cards.</li><li>Drag cards across tracks (lines on the board) in Asana style.</li><li>Utilization of RxJS, NGRX for state management, and reactive programming.</li><li>Use Angular Material for styling.</li></ul><ul><li>Requirements:<ul><li>Authentication required via Google Firebase backend.</li></ul></li></ul><ul><li>Technologies Used:<ul><li>Angular: UI development.</li><li>RxJS: Reactive programming.</li><li>NGRX: State management.</li><li>Angular Material: UI styling.</li><li>Firebase: Backend for authentication and data storage.</li></ul></li></ul>'
+  },
+  {
     title: '_cost_accounting ',
     image: '/assets/images/projects/project3/project3-main.png',
     arrayImg: [
