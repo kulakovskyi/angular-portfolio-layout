@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {forkJoin, Observable} from "rxjs";
+import {catchError, forkJoin, Observable, of} from "rxjs";
 import {SnippetGithubInterface} from "../types/snippet-github.interface";
 import {environment} from "../../../../../environment/environment";
 
@@ -20,4 +20,13 @@ export class GithubService{
 
     return forkJoin(observables);
   }
+
+  getSnippetContent(path: string): Observable<string> {
+    const url = `assets/snippets/${path}`;
+
+    return this.http.get(url, { responseType: 'text' }).pipe(
+      catchError(() => of(''))
+    );
+  }
+
 }

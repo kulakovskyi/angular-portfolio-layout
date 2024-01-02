@@ -3,7 +3,7 @@ import {GithubService} from "../../services/github.service";
 import {HighlightAutoResult} from "ngx-highlightjs";
 import {SnippetGithubInterface} from "../../types/snippet-github.interface";
 import {environment} from "../../../../../../environment/environment";
-import {map, Observable, Subscription} from "rxjs";
+import {forkJoin, map, Observable, Subscription} from "rxjs";
 import {BioService} from "../../services/bio.service";
 import {fadeInOut} from "../../../../../shared/animation/fade-animation";
 import {UserDataInterface} from "../../../../../admin/types/user-data.interface";
@@ -41,22 +41,23 @@ export class CodeSnippetComponent implements OnInit, OnDestroy{
   }
 
   getSnippets() {
-    const owner: string = environment.gitHubUser;
-    const repo: string = environment.repoSnippet;
-    const paths: string[] = environment.pathSnippet
+    const paths: string[] = environment.pathSnippet;
 
-    this.snippets$ = this.githubService.getSnippets(owner, repo, paths).pipe(
-      map((data: SnippetGithubInterface[]) => {
+    const snippetRequests = paths.map(path => this.githubService.getSnippetContent(path));
+
+    this.snippets$ = forkJoin(snippetRequests).pipe(
+      map((data: string[]) => {
         return data.map((snippet, index) => {
           return {
-            code: atob(snippet.content),
+            code: snippet,
             text: this.descriptionTextArray[index].text
           };
         });
       })
     );
-
   }
+
+
   onHighlight(e: HighlightAutoResult) {
     this.response = {
       language: e.language,
