@@ -1,6 +1,4 @@
 .admin{
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  max-height: 100%;
+  overflow: hidden;
 }

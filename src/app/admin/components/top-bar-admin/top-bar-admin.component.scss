@@ -1,0 +1,208 @@
+.header {
+  width: 100%;
+  height: 57px;
+  border-bottom: 1px solid var(--color-border-gray-dark);
+  @media screen and (max-width: 1500px) {
+    height: 44px;
+  }
+
+  &__burger {
+    margin: 0 0 0 auto;
+    display: none;
+    cursor: pointer;
+    padding: 0 20px;
+    @media screen and (max-width: 1080px) {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    &.active {
+      .bar {
+        &:nth-child(2) {
+          opacity: 0;
+        }
+
+        &:nth-child(1) {
+          transform: translateY(7px) rotate(45deg);
+        }
+
+        &:nth-child(3) {
+          transform: translateY(-7px) rotate(-45deg);
+        }
+      }
+    }
+
+    .bar {
+      position: relative;
+      height: 2px;
+      width: 18px;
+      background-color: var(--color-gray);
+      transition: 0.4s;
+    }
+  }
+
+  &__row {
+    display: flex;
+    height: 100%;
+  }
+
+  &__name {
+    padding: 0 0 0 20px;
+    display: flex;
+    align-items: center;
+    width: 315px;
+    border-right: 1px solid var(--color-border-gray-dark);
+    font-size: 16px;
+    font-weight: 450;
+    color: var(--color-gray);
+    transition: color .3s ease;
+
+    &:hover {
+      color: var(--color-white)
+    }
+
+    @media screen and (max-width: 1500px) {
+      width: 215px;
+      font-size: 13px;
+    }
+    @media screen and (max-width: 1080px) {
+      border: none;
+    }
+  }
+
+  &__nav {
+    flex: 1 1 auto;
+    display: flex;
+    @media screen and (max-width: 1080px) {
+      position: absolute;
+      top: 44px;
+      right: 0;
+      z-index: 10;
+      flex-direction: column;
+      background: var(--bg-color-main);
+      width: 100%;
+      height: calc(100% - 84px);
+      display: flex;
+      transform: translateX(100%);
+      transition: transform .5s ease;
+      &.active {
+        transform: translateX(0);
+      }
+    }
+
+    &-link {
+      border-right: 1px solid var(--color-border-gray-dark);
+      padding: 0 31px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      font-size: 16px;
+      font-weight: 450;
+      color: var(--color-gray);
+      transition: color .3s ease;
+      @media screen and (max-width: 1080px) {
+        padding: 15px 20px;
+        border-bottom: 1px solid var(--color-border-gray-dark);
+        border-right: none;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        left: 0;
+        bottom: -1px;
+        background: var(--color-orange);
+        opacity: 0;
+        transition: opacity .3s ease;
+        @media screen and (max-width: 1080px) {
+          content: none;
+        }
+      }
+
+      &.active {
+        color: var(--color-white);
+
+        &::before {
+          opacity: 1;
+        }
+      }
+
+      &:hover {
+        color: var(--color-white);
+
+        &::before {
+          opacity: 1;
+        }
+      }
+
+      @media screen and (max-width: 1500px) {
+        font-size: 13px;
+      }
+    }
+  }
+
+  &__contact {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    border-left: 1px solid var(--color-border-gray-dark);
+    font-size: 16px;
+    font-weight: 450;
+    color: var(--color-gray);
+    transition: color .3s ease;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      left: 0;
+      bottom: -1px;
+      background: var(--color-orange);
+      opacity: 0;
+      transition: opacity .3s ease;
+      @media screen and (max-width: 1080px) {
+        content: none;
+      }
+    }
+
+    &.active {
+      color: var(--color-white);
+
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    &:hover {
+      color: var(--color-white);
+
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    @media screen and (max-width: 1080px) {
+      justify-content: flex-start;
+      width: 100%;
+      padding: 15px 20px;
+      border-bottom: 1px solid var(--color-border-gray-dark);
+      border-right: none;
+    }
+
+    &:hover {
+      color: var(--color-white)
+    }
+
+    @media screen and (max-width: 1500px) {
+      font-size: 13px;
+    }
+  }
+}

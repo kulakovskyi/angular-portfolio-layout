@@ -12,6 +12,7 @@ import {EditService} from "./services/edit.service";
 import {AlertModule} from "../shared/modules/alert/alert.module";
 import {QuillEditorComponent} from "ngx-quill";
 import {BioService} from "../about/modules/bio/services/bio.service";
+import { TopBarAdminComponent } from './components/top-bar-admin/top-bar-admin.component';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import {BioService} from "../about/modules/bio/services/bio.service";
   declarations: [
     AdminLayoutComponent,
     LoginComponent,
-    EditComponent
+    EditComponent,
+    TopBarAdminComponent
   ],
   providers:[
     AuthGuard,

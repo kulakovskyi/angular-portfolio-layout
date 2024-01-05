@@ -1,8 +1,12 @@
 .wrapper{
   max-width: 400px;
-  margin: 0 auto;
-  padding: 30px 15px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   overflow-y: scroll;
+  height: calc(100vh - 307px);
+  padding: 30px 15px;
 }
 
 h2{

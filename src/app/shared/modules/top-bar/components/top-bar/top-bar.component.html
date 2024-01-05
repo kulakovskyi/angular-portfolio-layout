@@ -1,6 +1,6 @@
 <div class="header">
     <div class="header__row">
-      <a [routerLink]="['/']" class="header__name">{{ (currentUser$ | async)?.github }}</a>
+      <a [routerLink]="['/admin']" class="header__name">{{ (currentUser$ | async)?.github }}</a>
       <div class="header__burger"
            [class.active]="isMenuOpen"
            (click)="toggleMenu()">
@@ -28,13 +28,6 @@
           [routerLinkActiveOptions]="{exact: true}"
           (click)="toggleMenu()"
           class="header__nav-link">_projects</a>
-        <a
-          *ngIf="isAuthenticated"
-          [routerLink]="['/admin/edit']"
-          [routerLinkActive]="['active']"
-          [routerLinkActiveOptions]="{exact: true}"
-          (click)="toggleMenu()"
-          class="header__nav-link">_admin-edit</a>
         <ng-container *ngIf="isMenuOpen && isScreenWidthLessThan1080()">
           <a [routerLink]="['/contacts']"
              [routerLinkActive]="['active']"
