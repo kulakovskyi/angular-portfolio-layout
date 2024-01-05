@@ -1,0 +1,23 @@
+<app-alert></app-alert>
+<div class="about">
+  <div class="about__row">
+    <div class="about__info">
+      <form class="form" [formGroup]="formAboutUser" (ngSubmit)="submitAboutUser()">
+        <h2>User info</h2>
+        <div
+          class="form-group">
+          <label class="label">About user</label>
+          <textarea style="height: 54vh;" class="textarea" formControlName="about_user"></textarea>
+        </div>
+        <button
+          [disabled]="formAboutUser.invalid"
+          type="submit"
+          class="btn-submit">Save
+        </button>
+      </form>
+    </div>
+    <div class="about__education">EDUCATION</div>
+
+  </div>
+
+</div>

@@ -4,7 +4,6 @@ import { BioComponent } from './componets/bio/bio.component';
 import {RouterModule} from "@angular/router";
 import { PersonalInfoComponent } from './componets/personal-info/personal-info.component';
 import { CodeSnippetComponent } from './componets/code-snippet/code-snippet.component';
-import {GithubService} from "./services/github.service";
 import {Highlight} from "ngx-highlightjs";
 import {BioService} from "./services/bio.service";
 
@@ -25,9 +24,7 @@ import {BioService} from "./services/bio.service";
     CodeSnippetComponent
   ],
   providers:[
-    GithubService,
     BioService
-
   ]
 })
 

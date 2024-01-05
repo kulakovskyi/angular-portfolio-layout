@@ -19,6 +19,14 @@ export class EditService{
     )
   }
 
+  createUserAbout(des: any){
+    return this.http.post(`${environment?.['fbDBUrl']}/about-user.json`, des).pipe(
+      map(res => {
+        return res
+      })
+    )
+  }
+
   getUserData(): Observable<UserDataInterface>{
     return this.http.get<UserDataInterface>(`${environment?.['fbDBUrl']}/user-data/-NmG41cETnbZae0_4L7Q.json`)
   }
@@ -26,5 +34,14 @@ export class EditService{
   updateUserData(data: UserDataInterface): Observable<UserDataInterface>{
     return this.http.patch<UserDataInterface>(`${environment?.['fbDBUrl']}/user-data/-NmG41cETnbZae0_4L7Q.json`, data)
   }
+
+  getUserAboutInfo() :Observable<{text: string}>{
+    return this.http.get<{text: string}>(`${environment?.['fbDBUrl']}/about-user/-NnO0z26nQYDj-2DPrQ0.json`)
+  }
+
+  updateUserAboutInfo(data: {text: string}): Observable<{text: string}>{
+    return this.http.patch<{text: string}>(`${environment?.['fbDBUrl']}/about-user/-NnO0z26nQYDj-2DPrQ0.json`, data)
+  }
+
 
 }

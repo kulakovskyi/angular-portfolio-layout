@@ -21,10 +21,9 @@ export class EditComponent implements OnInit, OnDestroy {
   formSnippet!: FormGroup
   currentUser$!: Observable<UserDataInterface | null>
   updateUserDataSub$!: Subscription
-  updateSnippetSub$!: Subscription
-  updateSnippetCodeSub$!: Subscription
 
   combinedObservable$!: Subscription
+  combinedObservableEdit$!: Subscription
 
 
   constructor(private store: Store,
@@ -41,16 +40,12 @@ export class EditComponent implements OnInit, OnDestroy {
     })
 
     this.getCurrentSnippetsInfo()
-
-
   }
 
   ngOnDestroy() {
     if (this.updateUserDataSub$) this.updateUserDataSub$.unsubscribe()
-    if (this.updateSnippetSub$) this.updateSnippetSub$.unsubscribe()
-
-
     if (this.combinedObservable$) this.combinedObservable$.unsubscribe()
+    if (this.combinedObservableEdit$) this.combinedObservableEdit$.unsubscribe()
   }
 
   getCurrentSnippetsInfo() {
@@ -153,7 +148,7 @@ export class EditComponent implements OnInit, OnDestroy {
     const updateSnippetObservable = this.bioService.updateDescriptionCode(formDataRequest);
     const updateSnippetCodeObservable = this.bioService.updateSnippets(snippetCodeFormDataRequest);
 
-    forkJoin([updateSnippetObservable, updateSnippetCodeObservable])
+    this.combinedObservableEdit$ = forkJoin([updateSnippetObservable, updateSnippetCodeObservable])
       .pipe(
         catchError(error => {
           this.alertService.danger('Failure');

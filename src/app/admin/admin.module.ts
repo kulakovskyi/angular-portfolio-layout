@@ -13,6 +13,7 @@ import {AlertModule} from "../shared/modules/alert/alert.module";
 import {QuillEditorComponent} from "ngx-quill";
 import {BioService} from "../about/modules/bio/services/bio.service";
 import { TopBarAdminComponent } from './components/top-bar-admin/top-bar-admin.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { TopBarAdminComponent } from './components/top-bar-admin/top-bar-admin.c
           {path: '', redirectTo: '/admin/login', pathMatch: 'full'},
           {path: 'login', component: LoginComponent},
           {path: 'edit', component: EditComponent, canActivate: [AuthGuard]},
+          {path: 'about', component: AboutComponent, canActivate: [AuthGuard]},
         ]
       }
     ]),
@@ -35,7 +37,8 @@ import { TopBarAdminComponent } from './components/top-bar-admin/top-bar-admin.c
     AdminLayoutComponent,
     LoginComponent,
     EditComponent,
-    TopBarAdminComponent
+    TopBarAdminComponent,
+    AboutComponent
   ],
   providers:[
     AuthGuard,

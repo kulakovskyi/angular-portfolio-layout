@@ -35,7 +35,6 @@ export class BioService{
   }
 
 
-
   getDescriptionCode(): Observable<Array<{text: string}>>{
     return this.http.get<Array<{text: string}>>(`${environment?.['fbDBUrl']}/description-code/-NmBhBm9qrnq12MeD7jb.json`)
   }
