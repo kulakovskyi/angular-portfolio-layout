@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {forkJoin, Observable, Subscription} from "rxjs";
+import {catchError, finalize, forkJoin, Observable, Subscription, throwError} from "rxjs";
 import {UserDataInterface} from "../../types/user-data.interface";
 import {select, Store} from "@ngrx/store";
 import {currentUserSelector} from "../../../shared/store/selectors";
@@ -16,9 +16,7 @@ import {OutputObjectCode, OutputObjectText} from "../../../about/modules/bio/typ
 })
 
 
-
-
-export class EditComponent implements OnInit, OnDestroy{
+export class EditComponent implements OnInit, OnDestroy {
   formUser!: FormGroup
   formSnippet!: FormGroup
   currentUser$!: Observable<UserDataInterface | null>
@@ -27,8 +25,6 @@ export class EditComponent implements OnInit, OnDestroy{
   updateSnippetCodeSub$!: Subscription
 
   combinedObservable$!: Subscription
-
-
 
 
   constructor(private store: Store,
@@ -41,24 +37,23 @@ export class EditComponent implements OnInit, OnDestroy{
     this.initialFormUser()
     this.initialFormPersonalInfo()
     this.currentUser$.subscribe(userData => {
-      if(userData) this.formUser.patchValue(userData)
+      if (userData) this.formUser.patchValue(userData)
     })
 
     this.getCurrentSnippetsInfo()
 
 
-
   }
 
   ngOnDestroy() {
-    if(this.updateUserDataSub$) this.updateUserDataSub$.unsubscribe()
-    if(this.updateSnippetSub$) this.updateSnippetSub$.unsubscribe()
+    if (this.updateUserDataSub$) this.updateUserDataSub$.unsubscribe()
+    if (this.updateSnippetSub$) this.updateSnippetSub$.unsubscribe()
 
 
-    if(this.combinedObservable$) this.combinedObservable$.unsubscribe()
+    if (this.combinedObservable$) this.combinedObservable$.unsubscribe()
   }
 
-  getCurrentSnippetsInfo(){
+  getCurrentSnippetsInfo() {
     this.combinedObservable$ = forkJoin(
       this.bioService.getDescriptionCode(),
       this.bioService.getSnippets()
@@ -75,13 +70,13 @@ export class EditComponent implements OnInit, OnDestroy{
         snippetCodeInitialValues[snippetKey] = snippet.code;
       });
 
-      const initialValues = { ...descriptionCodeInitialValues, ...snippetCodeInitialValues };
+      const initialValues = {...descriptionCodeInitialValues, ...snippetCodeInitialValues};
 
       this.formSnippet.patchValue(initialValues);
     });
   }
 
-  initialFormUser(){
+  initialFormUser() {
     this.formUser = new FormGroup({
       user: new FormControl(null),
       github: new FormControl(null),
@@ -94,7 +89,7 @@ export class EditComponent implements OnInit, OnDestroy{
     })
   }
 
-  initialFormPersonalInfo(){
+  initialFormPersonalInfo() {
     this.formSnippet = new FormGroup({
       snippet_1: new FormControl(null),
       snippet_2: new FormControl(null),
@@ -118,13 +113,15 @@ export class EditComponent implements OnInit, OnDestroy{
   }
 
   submitUser() {
-    if(this.formUser.invalid) return
+    if (this.formUser.invalid) return
     const updateUserData = {...this.formUser.value}
     this.store.dispatch(updateCurrentUserAction({currentUserInput: updateUserData}))
   }
 
   submitSnippet() {
-    if(this.formSnippet.invalid) return
+
+    if (this.formSnippet.invalid) return
+
     const snippetControlNames = [
       'snippet_1', 'snippet_2', 'snippet_3',
       'snippet_4', 'snippet_5', 'snippet_6',
@@ -137,46 +134,36 @@ export class EditComponent implements OnInit, OnDestroy{
       'snippet_code_7', 'snippet_code_8', 'snippet_code_9'
     ];
 
+    const processControls = (controlNames: string[], formData: FormData | any, formDataRequest: OutputObjectText | OutputObjectCode | any, textKey: string | 'text' | 'code') => {
+      controlNames.forEach((controlName, index) => {
+        formData[controlName] = this.formSnippet.get(controlName)?.value;
+        formDataRequest[index.toString()] = {[textKey]: formData[controlName]};
+      });
+    };
+
     const formData: FormData | any = {};
-
-    snippetControlNames.forEach(controlName => {
-      formData[controlName] = this.formSnippet.get(controlName)?.value;
-    });
-
-    const outputObject: OutputObjectText = {};
-    snippetControlNames.forEach((controlName, index) => {
-      outputObject[index.toString()] = { text: formData[controlName] };
-    });
-
-    this.updateSnippetSub$ = this.bioService.updateDescriptionCode(outputObject).subscribe(
-      () => {
-        this.alertService.success('Success');
-      },
-      () => {
-        this.alertService.danger('Failure');
-      }
-    );
+    const formDataRequest: OutputObjectText = {};
 
     const snippetCodeFormData: FormData | any = {};
+    const snippetCodeFormDataRequest: OutputObjectCode = {};
 
-    snippetCodeControlNames.forEach(controlName => {
-      snippetCodeFormData[controlName] = this.formSnippet.get(controlName)?.value;
-    });
+    processControls(snippetControlNames, formData, formDataRequest, 'text');
+    processControls(snippetCodeControlNames, snippetCodeFormData, snippetCodeFormDataRequest, 'code');
 
-    const codeOutputObject: OutputObjectCode = {};
-    snippetCodeControlNames.forEach((controlName, index) => {
-      codeOutputObject[index.toString()] = { code: snippetCodeFormData[controlName] };
-    });
+    const updateSnippetObservable = this.bioService.updateDescriptionCode(formDataRequest);
+    const updateSnippetCodeObservable = this.bioService.updateSnippets(snippetCodeFormDataRequest);
 
-    this.updateSnippetCodeSub$ = this.bioService.updateSnippets(codeOutputObject).subscribe(
-      () => {
-        this.alertService.success('Code Success');
-      },
-      () => {
-        this.alertService.danger('Code Failure');
-      }
-    );
-
-
+    forkJoin([updateSnippetObservable, updateSnippetCodeObservable])
+      .pipe(
+        catchError(error => {
+          this.alertService.danger('Failure');
+          return throwError(error)
+        })
+      )
+      .subscribe(
+        () => {
+          this.alertService.success('Success');
+        }
+      );
   }
 }
