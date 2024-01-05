@@ -1,0 +1,13 @@
+<form class="form" [formGroup]="formAboutUser" (ngSubmit)="submitAboutUser()">
+  <h2>User bio</h2>
+  <div
+    class="form-group">
+    <label class="label">About user</label>
+    <textarea style="height: 54vh;" class="textarea" formControlName="about_user"></textarea>
+  </div>
+  <button
+    [disabled]="formAboutUser.invalid"
+    type="submit"
+    class="btn-submit">Save
+  </button>
+</form>

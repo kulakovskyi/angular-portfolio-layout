@@ -33,15 +33,13 @@ export class LoginComponent implements OnInit{
   }
 
   submit() {
-    if(this.form.invalid){
-      return
-    }
+    if(this.form.invalid) return
 
     this.submitted = true
     const user: User = {...this.form.value}
     this.auth.login(user).subscribe(() => {
       this.form.reset()
-      this.router.navigate(['/admin', 'edit'])
+      this.router.navigate(['/admin', 'user-snippets'])
       this.submitted = false
     }, ()=>{
       this.submitted = false

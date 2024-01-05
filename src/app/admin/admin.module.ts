@@ -10,7 +10,6 @@ import {EditService} from "./services/edit.service";
 import {AlertModule} from "../shared/modules/alert/alert.module";
 import {BioService} from "../about/modules/bio/services/bio.service";
 import { TopBarAdminComponent } from './components/top-bar-admin/top-bar-admin.component';
-import { AboutComponent } from './components/about/about.component';
 import {QuillModule} from "ngx-quill";
 
 @NgModule({
@@ -23,7 +22,6 @@ import {QuillModule} from "ngx-quill";
           {path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)},
           {path: 'user-snippets', loadChildren: () => import('./pages/user-snippets/user-snippets.module').then(m => m.UserSnippetsModule), canActivate: [AuthGuard]},
           {path: 'about-education', loadChildren: () => import('./pages/about-education/about-education.module').then(m => m.AboutEducationModule), canActivate: [AuthGuard]},
-          {path: 'about', component: AboutComponent, canActivate: [AuthGuard]},
         ]
       }
     ]),
@@ -35,7 +33,6 @@ import {QuillModule} from "ngx-quill";
   declarations: [
     AdminLayoutComponent,
     TopBarAdminComponent,
-    AboutComponent
   ],
   providers:[
     AuthGuard,

@@ -1,0 +1,43 @@
+<div class="educations">
+  <h2>Educations</h2>
+  <div
+    *ngIf="educations"
+    class="educations__list">
+    <div
+      *ngFor="let education of educations"
+      class="educations__item">
+      <div class="educations__item-title">{{education.title_education}}</div>
+      <button
+        (click)="deleteEducations(education.id)"
+        class="educations__item-delete btn-submit">Delete</button>
+    </div>
+  </div>
+</div>
+<form class="form" [formGroup]="formEducationUser" (ngSubmit)="submitEducationUser()">
+  <h2>Create education</h2>
+  <div class="form-group">
+    <label class="label">Title</label>
+    <input class="input" formControlName="title_education"/>
+  </div>
+  <div class="form-group">
+    <label class="label">Image</label>
+    <div class="quil">
+      <quill-editor
+        [modules]="editorConfig"
+        class="custom-editor"
+        style="width: 100%;"
+        formControlName="image"
+        placeholder="Image"></quill-editor>
+    </div>
+  </div>
+  <div
+    class="form-group">
+    <label class="label">Text</label>
+    <textarea class="textarea" formControlName="text_education"></textarea>
+  </div>
+  <button
+    [disabled]="formEducationUser.invalid"
+    type="submit"
+    class="btn-submit">Save
+  </button>
+</form>
