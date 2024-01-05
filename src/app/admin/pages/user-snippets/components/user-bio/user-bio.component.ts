@@ -1,49 +1,30 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {catchError, finalize, forkJoin, Observable, Subscription, throwError} from "rxjs";
-import {UserDataInterface} from "../../types/user-data.interface";
-import {select, Store} from "@ngrx/store";
-import {currentUserSelector} from "../../../shared/store/selectors";
-import {updateCurrentUserAction} from "../../../shared/store/action/update-current-user.action";
-import {BioService} from "../../../about/modules/bio/services/bio.service";
-import {AlertServices} from "../../../shared/services/alert.service";
-import {OutputObjectCode, OutputObjectText} from "../../../about/modules/bio/types/form-data.interace";
+import {catchError, forkJoin, Subscription, throwError} from "rxjs";
+import {BioService} from "../../../../../about/modules/bio/services/bio.service";
+import {AlertServices} from "../../../../../shared/services/alert.service";
+import {OutputObjectCode, OutputObjectText} from "../../../../../about/modules/bio/types/form-data.interace";
 
 @Component({
-  selector: 'app-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss']
+  selector: 'app-user-bio',
+  templateUrl: './user-bio.component.html',
+  styleUrls: ['./user-bio.component.scss']
 })
-
-
-export class EditComponent implements OnInit, OnDestroy {
-  formUser!: FormGroup
+export class UserBioComponent implements OnInit, OnDestroy{
   formSnippet!: FormGroup
-  currentUser$!: Observable<UserDataInterface | null>
-  updateUserDataSub$!: Subscription
-
   combinedObservable$!: Subscription
   combinedObservableEdit$!: Subscription
 
-
-  constructor(private store: Store,
-              private bioService: BioService,
+  constructor(private bioService: BioService,
               private alertService: AlertServices) {
   }
 
   ngOnInit() {
-    this.currentUser$ = this.store.pipe(select(currentUserSelector))
-    this.initialFormUser()
-    this.initialFormPersonalInfo()
-    this.currentUser$.subscribe(userData => {
-      if (userData) this.formUser.patchValue(userData)
-    })
-
+    this.initialFormSnippets()
     this.getCurrentSnippetsInfo()
   }
 
   ngOnDestroy() {
-    if (this.updateUserDataSub$) this.updateUserDataSub$.unsubscribe()
     if (this.combinedObservable$) this.combinedObservable$.unsubscribe()
     if (this.combinedObservableEdit$) this.combinedObservableEdit$.unsubscribe()
   }
@@ -71,20 +52,7 @@ export class EditComponent implements OnInit, OnDestroy {
     });
   }
 
-  initialFormUser() {
-    this.formUser = new FormGroup({
-      user: new FormControl(null),
-      github: new FormControl(null),
-      profession: new FormControl(null),
-      gitHubLinkUser: new FormControl(null),
-      telegramLinkUser: new FormControl(null),
-      instagramLinkUser: new FormControl(null),
-      linkedinLinkUser: new FormControl(null),
-      mailLinkUser: new FormControl(null),
-    })
-  }
-
-  initialFormPersonalInfo() {
+  initialFormSnippets() {
     this.formSnippet = new FormGroup({
       snippet_1: new FormControl(null),
       snippet_2: new FormControl(null),
@@ -105,12 +73,6 @@ export class EditComponent implements OnInit, OnDestroy {
       snippet_code_8: new FormControl(null),
       snippet_code_9: new FormControl(null),
     })
-  }
-
-  submitUser() {
-    if (this.formUser.invalid) return
-    const updateUserData = {...this.formUser.value}
-    this.store.dispatch(updateCurrentUserAction({currentUserInput: updateUserData}))
   }
 
   submitSnippet() {
@@ -161,4 +123,5 @@ export class EditComponent implements OnInit, OnDestroy {
         }
       );
   }
+
 }

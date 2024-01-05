@@ -1,21 +1,21 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {AuthService} from "../../services/auth.service";
-import {ActivatedRoute, Params, Router} from "@angular/router";
-import {User} from "../../types/auth.interface";
+import {AuthService} from "../../../../services/auth.service";
+import {Router} from "@angular/router";
+import {User} from "../../../../types/auth.interface";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit{
   form!: FormGroup
   submitted = false
 
   constructor(public auth: AuthService,
-              private router: Router,
-              private route: ActivatedRoute) {
+              private router: Router) {
   }
 
   ngOnInit() {

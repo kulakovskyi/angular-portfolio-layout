@@ -1,0 +1,43 @@
+<form class="form" [formGroup]="formUser" (ngSubmit)="submitUser()">
+  <h2>User info</h2>
+  <div
+    class="form-group">
+    <label class="label"  for="user">User name</label>
+    <input class="input" id='user' type="text" formControlName="user" placeholder="User-name">
+  </div>
+  <div
+    class="form-group">
+    <label class="label"  for="profession">Profession</label>
+    <input class="input" id='profession' type="text" formControlName="profession" placeholder="Profession">
+  </div>
+  <div
+    class="form-group">
+    <label class="label"  for="gitHubLinkUser">GitHub Link User</label>
+    <input class="input" id='gitHubLinkUser' type="text" formControlName="gitHubLinkUser" placeholder="GitHubLinkUser">
+  </div>
+  <div
+    class="form-group">
+    <label class="label"  for="telegramLinkUser">Telegram Link User</label>
+    <input class="input" id='telegramLinkUser' type="text" formControlName="telegramLinkUser" placeholder="Telegram Link User">
+  </div>
+  <div
+    class="form-group">
+    <label class="label"  for="instagramLinkUser">Instagram Link User</label>
+    <input class="input" id='instagramLinkUser' type="text" formControlName="instagramLinkUser" placeholder="Instagram Link User">
+  </div>
+  <div
+    class="form-group">
+    <label class="label"  for="linkedinLinkUser">Linkedin Link User</label>
+    <input class="input" id='linkedinLinkUser' type="text" formControlName="linkedinLinkUser" placeholder="Linkedin Link User">
+  </div>
+  <div
+    class="form-group">
+    <label class="label"  for="mailLinkUser">Mail Link User</label>
+    <input class="input" id='mailLinkUser' type="text" formControlName="mailLinkUser" placeholder="Mail Link User">
+  </div>
+  <button
+    [disabled]="formUser.invalid"
+    type="submit"
+    class="btn-submit">Save
+  </button>
+</form>
