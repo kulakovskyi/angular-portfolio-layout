@@ -18,6 +18,24 @@ export class BioService{
     )
   }
 
+  createSnippets(des: any){
+    return this.http.post(`${environment?.['fbDBUrl']}/description-snippets.json`, des).pipe(
+      map(res => {
+        return res
+      })
+    )
+  }
+
+  getSnippets(): Observable<Array<{code: string}>>{
+    return this.http.get<Array<{code: string}>>(`${environment?.['fbDBUrl']}/description-snippets/-NnNfW4vDHSTmUOKDJgY.json`)
+  }
+
+  updateSnippets(data: Record<string, { code: string }>): Observable<{code: string}[]>{
+    return this.http.patch<{code: string}[]>(`${environment?.['fbDBUrl']}/description-snippets/-NnNfW4vDHSTmUOKDJgY.json`, data)
+  }
+
+
+
   getDescriptionCode(): Observable<Array<{text: string}>>{
     return this.http.get<Array<{text: string}>>(`${environment?.['fbDBUrl']}/description-code/-NmBhBm9qrnq12MeD7jb.json`)
   }

@@ -1,9 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {GithubService} from "../../services/github.service";
 import {HighlightAutoResult} from "ngx-highlightjs";
-import {SnippetGithubInterface} from "../../types/snippet-github.interface";
 import {environment} from "../../../../../../environment/environment";
-import {forkJoin, map, Observable, Subscription} from "rxjs";
+import {forkJoin, map, Observable, of, Subscription} from "rxjs";
 import {BioService} from "../../services/bio.service";
 import {fadeInOut} from "../../../../../shared/animation/fade-animation";
 import {UserDataInterface} from "../../../../../admin/types/user-data.interface";
@@ -30,10 +29,22 @@ export class CodeSnippetComponent implements OnInit, OnDestroy{
 
   ngOnInit() {
     this.currentUser$ = this.store.pipe(select(currentUserSelector))
-    this.dSub$ = this.bioService.getDescriptionCode().subscribe(res => {
-      this.descriptionTextArray = res
-      this.getSnippets();
-    })
+    this.dSub$ = forkJoin([
+      this.bioService.getDescriptionCode(),
+      this.bioService.getSnippets()
+    ]).subscribe(([descriptionCode, snippets]) => {
+      this.descriptionTextArray = descriptionCode;
+
+      if (this.descriptionTextArray && this.descriptionTextArray.length > 0) {
+        this.snippets$ = of(snippets.map(snippet => ({
+          code: snippet.code,
+          text: this.descriptionTextArray.shift().text
+        })));
+      } else {
+        console.error("Error: descriptionTextArray is not defined or empty");
+        this.snippets$ = of([]);
+      }
+    });
   }
 
   ngOnDestroy() {
