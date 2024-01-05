@@ -10,10 +10,10 @@ import { EditComponent } from './components/edit/edit.component';
 import {AuthGuard} from "./services/auth.guard";
 import {EditService} from "./services/edit.service";
 import {AlertModule} from "../shared/modules/alert/alert.module";
-import {QuillEditorComponent} from "ngx-quill";
 import {BioService} from "../about/modules/bio/services/bio.service";
 import { TopBarAdminComponent } from './components/top-bar-admin/top-bar-admin.component';
 import { AboutComponent } from './components/about/about.component';
+import {QuillModule} from "ngx-quill";
 
 @NgModule({
   imports: [
@@ -31,7 +31,7 @@ import { AboutComponent } from './components/about/about.component';
     ReactiveFormsModule,
     HttpClientModule,
     AlertModule,
-    QuillEditorComponent,
+    QuillModule.forRoot(),
   ],
   declarations: [
     AdminLayoutComponent,
