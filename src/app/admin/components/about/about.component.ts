@@ -1,9 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {EditService} from "../../services/edit.service";
-import {catchError, Observable, Subscription, throwError} from "rxjs";
+import {catchError, Subscription, throwError} from "rxjs";
 import {FormControl, FormGroup} from "@angular/forms";
 import {AlertServices} from "../../../shared/services/alert.service";
-import {InterestsDataInterface} from "../../../about/modules/interests/types/interests-data.interface";
+import {EducationResponseInterface} from "../../types/education-response.interface";
 
 @Component({
   selector: 'app-about',
@@ -15,7 +15,9 @@ export class AboutComponent implements OnInit, OnDestroy {
   formEducationUser!: FormGroup
   aboutSub$!: Subscription
   updateAboutSub$!: Subscription
-  educations$!: Observable<InterestsDataInterface[]>
+  eSub$!: Subscription
+  createSub$!: Subscription
+  educations!: EducationResponseInterface[]
   editorConfig = {
     toolbar: [
       ['image']
@@ -35,15 +37,15 @@ export class AboutComponent implements OnInit, OnDestroy {
       });
     })
 
-    this.educations$ = this.editService.getUserEducation()
-
-    this.editService.getUserEducation().subscribe((res)  => {
-      console.log(res)
+    this.eSub$ = this.editService.getUserEducation().subscribe((res)  => {
+      this.educations = res
     })
   }
 
   ngOnDestroy() {
     if (this.aboutSub$) this.aboutSub$.unsubscribe()
+    if (this.eSub$) this.eSub$.unsubscribe()
+    if (this.createSub$) this.createSub$.unsubscribe()
   }
 
   initialFormAboutUser() {
@@ -79,7 +81,29 @@ export class AboutComponent implements OnInit, OnDestroy {
 
   submitEducationUser() {
     if (this.formEducationUser.invalid) return
-    this.editService.createUserEducation({...this.formEducationUser.value}).subscribe(res => {
+    this.createSub$ = this.editService.createUserEducation({...this.formEducationUser.value})
+      .pipe(
+        catchError(error => {
+          this.alertService.danger('Failure');
+          return throwError(error)
+        })
+      )
+      .subscribe(() => {
+        this.alertService.success('Success');
+      })
+  }
+
+  deleteEducations(id: string) {
+    this.editService.removeUserEducation(id)
+      .pipe(
+        catchError(error => {
+          this.alertService.danger('Failure');
+          return throwError(error)
+        })
+      )
+      .subscribe(() => {
+        this.alertService.success('Success');
+      this.educations = this.educations.filter(education => education.id !== id)
     })
   }
 }

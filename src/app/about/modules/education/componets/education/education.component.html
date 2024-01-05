@@ -7,18 +7,34 @@
   </div>
   <div class="block-list__wrapper">
     <div class="block-list__list">
-      <div class="single">
+<!--      <div class="single">-->
+<!--        <div class="single__title">-->
+<!--          <div class="single__title-text"> // KPI</div>-->
+<!--        </div>-->
+<!--        <div class="single__card">-->
+<!--          <div class="single__card-img">-->
+<!--            <img src="/assets/images/kpi.jpeg" alt="image">-->
+<!--          </div>-->
+<!--          <div class="single__card-des">-->
+<!--            I successfully completed my studies at Kyiv Polytechnic Institute, majoring in "Radio Engineering." My education encompassed a range of subjects, including the theory and practice of designing radio-electronic systems, methods of signal processing, and the utilization of modern technologies in this field. The knowledge and skills acquired during my time at the university are ready to be applied to practical challenges and contribute to the advancement of radio engineering technologies.</div>-->
+<!--        </div>-->
+<!--      </div>-->
+      <div
+        *ngFor="let education of (educations$ | async)"
+        class="single">
         <div class="single__title">
-          <div class="single__title-text"> // KPI</div>
+          <div class="single__title-text"> // {{education.title_education}}</div>
         </div>
         <div class="single__card">
+
           <div class="single__card-img">
-            <img src="/assets/images/kpi.jpeg" alt="image">
+            <quill-view [content]="education.image"></quill-view>
           </div>
-          <div class="single__card-des">
-            I successfully completed my studies at Kyiv Polytechnic Institute, majoring in "Radio Engineering." My education encompassed a range of subjects, including the theory and practice of designing radio-electronic systems, methods of signal processing, and the utilization of modern technologies in this field. The knowledge and skills acquired during my time at the university are ready to be applied to practical challenges and contribute to the advancement of radio engineering technologies.</div>
+          <div class="single__card-des">{{education.text_education}}</div>
         </div>
       </div>
+
+
 
     </div>
   </div>

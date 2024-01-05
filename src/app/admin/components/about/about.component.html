@@ -17,8 +17,23 @@
       </form>
     </div>
     <div class="about__education">
+      <div class="educations">
+        <h2>Educations</h2>
+        <div
+          *ngIf="educations"
+          class="educations__list">
+          <div
+            *ngFor="let education of educations"
+            class="educations__item">
+            <div class="educations__item-title">{{education.title_education}}</div>
+            <button
+              (click)="deleteEducations(education.id)"
+              class="educations__item-delete btn-submit">Delete</button>
+          </div>
+        </div>
+      </div>
       <form class="form" [formGroup]="formEducationUser" (ngSubmit)="submitEducationUser()">
-        <h2>Education user</h2>
+        <h2>Create education</h2>
         <div class="form-group">
           <label class="label">Title</label>
           <input class="input" formControlName="title_education"/>

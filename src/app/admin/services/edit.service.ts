@@ -4,6 +4,7 @@ import {map, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {UserDataInterface} from "../types/user-data.interface";
 import {InterestsDataInterface} from "../../about/modules/interests/types/interests-data.interface";
+import {EducationResponseInterface} from "../types/education-response.interface";
 
 @Injectable()
 
@@ -54,7 +55,7 @@ export class EditService{
     )
   }
 
-  getUserEducation(): Observable<InterestsDataInterface[]> {
+  getUserEducation(): Observable<EducationResponseInterface[]> {
     return this.http.get<any>(`${environment?.['fbDBUrl']}/education.json`)
       .pipe(map((response: {[key: string]: any})=>{
         return Object
@@ -70,8 +71,5 @@ export class EditService{
   removeUserEducation(id: string): Observable<void>{
     return this.http.delete<void>(`${environment?.['fbDBUrl']}/education/${id}.json`)
   }
-
-
-
 
 }
