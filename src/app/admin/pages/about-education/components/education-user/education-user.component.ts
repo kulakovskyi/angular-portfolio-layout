@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {EducationResponseInterface} from "../../../../types/education-response.interface";
 import {EditService} from "../../../../services/edit.service";
@@ -10,7 +10,7 @@ import {catchError, Subscription, throwError} from "rxjs";
   templateUrl: './education-user.component.html',
   styleUrls: ['./education-user.component.scss']
 })
-export class EducationUserComponent implements OnInit, OnDestroy{
+export class EducationUserComponent implements OnInit, OnDestroy, OnChanges{
   formEducationUser!: FormGroup
   educations!: EducationResponseInterface[]
   userEducationSub$!: Subscription
@@ -27,6 +27,12 @@ export class EducationUserComponent implements OnInit, OnDestroy{
 
   ngOnInit() {
     this.initialFormEducationUser()
+    this.userEducationSub$ = this.editService.getUserEducation().subscribe((res)  => {
+      this.educations = res
+    })
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
     this.userEducationSub$ = this.editService.getUserEducation().subscribe((res)  => {
       this.educations = res
     })

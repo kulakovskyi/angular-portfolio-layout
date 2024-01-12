@@ -1,0 +1,30 @@
+<div class="create-user-interests">
+  <form class="form" [formGroup]="formInterestsUser" (ngSubmit)="submitInterestsUser()">
+    <h2>Create education</h2>
+    <div class="form-group">
+      <label class="label">Title</label>
+      <input class="input" formControlName="title_interests"/>
+    </div>
+    <div class="form-group">
+      <label class="label">Image</label>
+      <div class="quil">
+        <quill-editor
+          [modules]="editorConfig"
+          class="custom-editor"
+          style="width: 100%;"
+          formControlName="image_interests"
+          placeholder="Image"></quill-editor>
+      </div>
+    </div>
+    <div
+      class="form-group">
+      <label class="label">Text</label>
+      <textarea class="textarea" formControlName="text_interests"></textarea>
+    </div>
+    <button
+      [disabled]="formInterestsUser.invalid"
+      type="submit"
+      class="btn-submit">Save
+    </button>
+  </form>
+</div>

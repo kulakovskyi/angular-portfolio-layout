@@ -22,6 +22,7 @@ import {QuillModule} from "ngx-quill";
           {path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)},
           {path: 'user-snippets', loadChildren: () => import('./pages/user-snippets/user-snippets.module').then(m => m.UserSnippetsModule), canActivate: [AuthGuard]},
           {path: 'about-education', loadChildren: () => import('./pages/about-education/about-education.module').then(m => m.AboutEducationModule), canActivate: [AuthGuard]},
+          {path: 'interests', loadChildren: () => import('./pages/interests/interests.module').then(m => m.InterestsModule), canActivate: [AuthGuard]},
         ]
       }
     ]),

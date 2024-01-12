@@ -5,6 +5,7 @@ import {HttpClient} from "@angular/common/http";
 import {UserDataInterface} from "../types/user-data.interface";
 import {InterestsDataInterface} from "../../about/modules/interests/types/interests-data.interface";
 import {EducationResponseInterface} from "../types/education-response.interface";
+import {InterestsResponseInterface} from "../types/interests-response.interface";
 
 @Injectable()
 
@@ -70,6 +71,32 @@ export class EditService{
 
   removeUserEducation(id: string): Observable<void>{
     return this.http.delete<void>(`${environment?.['fbDBUrl']}/education/${id}.json`)
+  }
+
+
+  createUserInterests(des: InterestsResponseInterface): Observable<{name: string}>{
+    return this.http.post<{name: string}>(`${environment?.['fbDBUrl']}/interests.json`, des).pipe(
+      map(res => {
+        return res
+      })
+    )
+  }
+
+  getUserInterests(): Observable<InterestsResponseInterface[]> {
+    return this.http.get<any>(`${environment?.['fbDBUrl']}/interests.json`)
+      .pipe(map((response: {[key: string]: any})=>{
+        return Object
+          .keys(response)
+          .map(key => ({
+            ...response[key],
+            id: key,
+            date: new Date(response[key].date)
+          }))
+      }))
+  }
+
+  removeUserInterests(id: string): Observable<void>{
+    return this.http.delete<void>(`${environment?.['fbDBUrl']}/interests/${id}.json`)
   }
 
 }
