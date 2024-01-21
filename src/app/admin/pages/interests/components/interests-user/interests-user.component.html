@@ -1,13 +1,23 @@
 <div class="interests-user">
   <h2>Interests user</h2>
-  <div class="interests-user__list">
-    <div class="interests-user__item">
-      <div class="interests-user__item-title"></div>
-      <div class="interests-user__item-img"></div>
-      <div class="interests-user__item-text"></div>
-      <button
-        (click)="editInterests()"
-        class="btn-submit">edit</button>
+  <div
+    style="grid-template-columns: 1fr 1fr"
+    class="interests-user__list block-list__list">
+    <div
+      *ngFor="let interest of (interests$ | async)"
+      class="interests-user__item single">
+      <div class="interests-user__item-title single__title-text">{{ interest.title_interests }}</div>
+      <div class="single__card">
+        <div class="interests-user__item-img single__card-img">
+          <quill-view [content]="interest.image_interests"></quill-view>
+        </div>
+        <div class="interests-user__item-text single__card-des">{{ interest.text_interests }}</div>
+        <button
+          style="width: calc(100% - 30px); margin: 0 auto"
+          (click)="deleteInterests(interest.id)"
+          class="btn-submit">delete</button>
+      </div>
+
     </div>
   </div>
 </div>

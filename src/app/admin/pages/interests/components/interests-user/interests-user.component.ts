@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {EditService} from "../../../../services/edit.service";
 import {InterestsResponseInterface} from "../../../../types/interests-response.interface";
-import {Subscription} from "rxjs";
+import {Observable, Subscription} from "rxjs";
 
 @Component({
   selector: 'app-interests-user',
@@ -9,20 +9,17 @@ import {Subscription} from "rxjs";
   styleUrls: ['./interests-user.component.scss']
 })
 export class InterestsUserComponent implements OnInit{
-  interests!: InterestsResponseInterface[]
+  interests$!: Observable<InterestsResponseInterface[]>
   userInterestsSub$!: Subscription
 
   constructor(private editService: EditService) {
   }
 
   ngOnInit() {
-    this.userInterestsSub$ = this.editService.getUserInterests().subscribe(res => {
-      this.interests = res
-      console.log(res)
-    })
+    this.interests$ = this.editService.getUserInterests()
   }
 
-  editInterests() {
-
+  deleteInterests(id: string) {
+    this.editService.removeUserInterests(id).subscribe()
   }
 }

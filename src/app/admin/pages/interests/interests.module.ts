@@ -4,7 +4,7 @@ import { InterestsComponent } from './components/interests/interests.component';
 import {RouterModule} from "@angular/router";
 import { InterestsUserComponent } from './components/interests-user/interests-user.component';
 import { CreateInterestsUserComponent } from './components/create-interests-user/create-interests-user.component';
-import {QuillEditorComponent} from "ngx-quill";
+import {QuillEditorComponent, QuillViewComponent} from "ngx-quill";
 import {ReactiveFormsModule} from "@angular/forms";
 import {EditService} from "../../services/edit.service";
 
@@ -15,7 +15,8 @@ import {EditService} from "../../services/edit.service";
       {path: '', component: InterestsComponent}
     ]),
     QuillEditorComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    QuillViewComponent
   ],
   declarations: [
     InterestsComponent,

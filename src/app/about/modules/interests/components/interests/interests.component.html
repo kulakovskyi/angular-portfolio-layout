@@ -12,9 +12,9 @@
       class="block-list__list">
       <app-interest-item
         *ngFor="let item of interestsData"
-        [title] = item.title
-        [image]="item.image"
-        [description]="item.text"
+        [title] = item.title_interests
+        [image]="item.image_interests"
+        [description]="item.text_interests"
       ></app-interest-item>
     </div>
     <ng-template #loading>Loading...</ng-template>

@@ -19,6 +19,7 @@ export class InterestsService{
     )
   }
 
+
   getInterests(): Observable<InterestsDataInterface[]>{
     return this.http.get(`${environment?.['fbDBUrl']}/interests.json`).pipe(
       map(response => [].concat(...Object.values(response)))
