@@ -9,7 +9,9 @@
       <div class="interests-user__item-title single__title-text">{{ interest.title_interests }}</div>
       <div class="single__card">
         <div class="interests-user__item-img single__card-img">
-          <quill-view [content]="interest.image_interests"></quill-view>
+          <quill-view
+            [content]="interest.image_interests"
+          ></quill-view>
         </div>
         <div class="interests-user__item-text single__card-des">{{ interest.text_interests }}</div>
         <button
